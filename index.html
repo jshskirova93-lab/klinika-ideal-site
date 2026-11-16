@@ -1,203 +1,304 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Стоматология «Идеал»</title>
+<title>Сайт Идеал, Тишина</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:'Manrope',system-ui,sans-serif;background:#fbf8f4;color:#1f2f42}
-a{color:#1f2f42}a:hover{color:#3a5272}
-a:focus-visible,summary:focus-visible{outline:3px solid #b79a7a;outline-offset:3px}
-summary{cursor:pointer;list-style:none}
+/* Макет «Идеал»: бирюзовый и золото на тёплом белом, серифная гарнитура, тонкие золотые линии */
+:root{--teal:#0e7a80;--teal-d:#0a5f64;--cream:#fbf6ee;--gold:#c4a05a;--gold-d:#8a6a2c;--ink:#1c3a42;--mut:#4d6169;
+--disp:'Cormorant Garamond',Georgia,serif;--body:'PT Serif',Georgia,serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:inherit}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:var(--disp);font-weight:600;margin:0;text-wrap:balance}
+.w{max-width:1160px;margin:0 auto;padding:0 24px}
+svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.gi{color:var(--gold)}
+/* шапка */
+header .w{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.logo{text-decoration:none;display:flex;align-items:center;gap:14px;line-height:1;color:var(--teal-d)}
+.logo img{width:62px;height:62px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);display:block}
+.logo span{display:flex;flex-direction:column}
+.lg{padding:44px 24px 12px;text-align:center}
+.lg img{width:min(260px,70%);aspect-ratio:1/1;object-fit:cover;border-radius:24px;display:block;margin:0 auto}
+.logo b{font-family:var(--disp);font-size:46px;font-weight:600;font-style:italic}
+.logo small{font-size:10.5px;letter-spacing:.32em;margin-top:2px}
+nav{display:flex;flex-wrap:wrap;gap:8px 36px;font-size:18px}
+nav a{text-decoration:none}nav a:hover{color:var(--teal)}
+.tel{display:flex;align-items:center;gap:10px;font-size:20px;text-decoration:none;border-left:1px solid var(--gold);padding-left:24px}
+.tel svg{font-size:20px;color:var(--gold-d)}
+/* первый экран */
+.hero{background:var(--teal);color:#fff;position:relative}
+.hero .w{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;padding-top:0;padding-bottom:0;max-width:1240px;padding-left:0;padding-right:0}
+.hero-t{padding:64px 24px 64px 48px;display:flex;flex-direction:column;justify-content:center;gap:22px}
+.hero h1{font-size:clamp(46px,6vw,76px);line-height:1.04;font-weight:500}
+.rule{width:76px;height:2px;background:var(--gold)}
+.hero p{margin:0;font-style:italic;font-size:21px;max-width:380px;color:#e8f4f4}
+.btn{display:inline-block;background:var(--cream);color:var(--teal-d);padding:16px 38px;font-size:19px;text-decoration:none;align-self:flex-start;transition:background .2s,color .2s}
+.btn:hover{background:var(--gold);color:#fff}
+.btn.o{background:transparent;border:1px solid var(--gold-d);color:var(--teal-d);padding:12px 24px;font-size:17px}
+.btn.o:hover{background:var(--teal-d);color:#fff;border-color:var(--teal-d)}
+.hero-p{background:var(--gold);clip-path:polygon(16% 0,100% 0,100% 100%,0 100%);min-height:460px}
+.hero-p img{display:block;width:100%;height:100%;min-height:460px;object-fit:cover;object-position:30% 25%;clip-path:polygon(calc(16% + 3px) 0,100% 0,100% 100%,3px 100%);background:#cfe3e3}
+/* плюсы */
+.perks .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 24px;padding-top:22px;padding-bottom:22px}
+.perk{display:flex;align-items:center;gap:14px;font-size:19px;flex:1 1 240px}
+.perk svg{font-size:38px;color:var(--gold)}
+.perk+.perk{border-left:1px solid var(--gold);padding-left:24px}
+/* врач */
+.doc .w{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:40px;padding-bottom:56px}
+.doc img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 35%;display:block;background:#cfe3e3}
+.doc h2{font-size:clamp(36px,4.4vw,54px);line-height:1.05;color:var(--teal-d);font-weight:500}
+.doc p{margin:18px 0 22px;font-size:19px}
+.lnk{color:var(--teal-d);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:3px;font-size:18px}
+.lnk:hover{color:var(--teal)}
+/* заголовки с линией */
+.hl{display:flex;align-items:center;gap:28px}
+.hl h2{font-size:clamp(34px,4.4vw,52px);font-weight:500;line-height:1.05}
+.hl::after{content:"";flex:1;height:1px;background:var(--gold);min-width:40px}
+/* услуги */
+.svc{background:var(--teal);color:#fff;padding:36px 0 40px}
+.svc .grid{display:grid;grid-template-columns:1fr 1fr;margin-top:24px;border-top:1px solid rgba(196,160,90,.7)}
+.s{display:flex;align-items:center;gap:22px;padding:24px 20px 24px 8px}
+.s:nth-child(odd){border-right:1px solid rgba(196,160,90,.7)}
+.s:nth-child(n+3){border-top:1px solid rgba(196,160,90,.7)}
+.s:nth-child(even){padding-left:32px}
+.s svg{font-size:56px;color:var(--gold);padding-right:22px;border-right:1px solid var(--gold);box-sizing:content-box;height:60px}
+.s h3{font-size:32px;font-weight:500;line-height:1.1}
+.s p{margin:4px 0 0;font-size:17px;color:#e3f0f0}
+/* шаги */
+.steps{padding:44px 0 36px}
+.st{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px}
+.st div{display:flex;align-items:center;gap:20px;font-size:21px;line-height:1.3}
+.st i{font-family:var(--disp);font-style:italic;font-size:76px;line-height:1;color:var(--gold);padding-right:20px;border-right:1px solid var(--gold)}
+/* результаты */
+.res{padding:20px 0 36px}
+.pair{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-top:24px}
+.ph{aspect-ratio:4/3;border:1px solid var(--gold);border-radius:14px;background:#f3ebdd;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 8px 10px;color:#b9a47c}
+.ph svg{font-size:78px}
+.ph span{background:#eadfca;color:var(--mut);border-radius:999px;padding:2px 26px;font-size:15px}
+.note{text-align:center;font-style:italic;color:var(--mut);margin:22px 0 0;display:flex;align-items:center;gap:20px}
+.note::before,.note::after{content:"";flex:1;height:1px;background:var(--gold)}
+/* цены */
+.pr{background:var(--teal);color:#fff;padding:36px 0 40px}
+.pr .sub{font-style:italic;font-size:19px;margin:8px 0 18px;color:#e3f0f0}
+.row{display:flex;align-items:center;gap:20px;padding:13px 0;border-top:1px solid rgba(196,160,90,.7);font-size:21px;text-decoration:none}
+.row:last-child{border-bottom:1px solid rgba(196,160,90,.7)}
+.row svg{font-size:30px;color:var(--gold)}
+.row em{margin-left:auto;font-size:18px}
+.row:hover{background:var(--teal-d)}
+/* отзывы, вопросы */
+.rv{padding:36px 0 8px}
+.rv .w{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px}
+.q{font-family:var(--disp);font-size:100px;line-height:.7;color:var(--gold);padding-right:20px;border-right:1px solid var(--gold);padding-top:26px;height:70px}
+.rv h2{font-size:clamp(32px,4vw,46px);font-weight:500}
+.rv p{margin:4px 0 0;font-style:italic;font-size:19px}
+.faq{padding:28px 0 12px}
+details{border-bottom:1px solid var(--gold);padding:14px 4px;font-size:20px}
+details[open]{border:1px solid var(--gold);padding:14px 22px;margin:6px 0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
 summary::-webkit-details-marker{display:none}
-h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif}
+summary::after{content:"+";font-size:30px;line-height:1;color:var(--mut)}
+details[open] summary::after{content:"–"}
+details p{margin:8px 0 2px;font-style:italic;font-size:18px;color:var(--mut)}
+/* документы */
+.docs{padding:28px 0 40px}
+.dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 28px;margin-top:20px}
+.dg details{font-size:19px}
+.dg details a{display:block;font-size:16px;color:var(--teal-d);margin-top:10px;line-height:1.4}
+/* контакты */
+.ct{background:var(--teal);color:#fff;padding:36px 0 40px}
+.ct .w{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.ct h2{font-size:clamp(34px,4.4vw,52px);font-weight:500}
+.ln{display:flex;align-items:center;gap:16px;margin-top:18px;font-size:24px}
+.ln svg{font-size:30px}
+.ln.big{font-size:clamp(34px,4.6vw,52px);font-family:var(--disp);font-weight:500;color:#fff;text-decoration:none}
+.ln.big svg{font-size:36px;color:#fff}
+.ct .btn{margin-top:26px}
+.fr{position:relative;padding:14px}
+.fr::before,.fr::after{content:"";position:absolute;width:42px;height:42px;border:2px solid var(--gold)}
+.fr::before{top:0;right:0;border-left:0;border-bottom:0}
+.fr::after{bottom:0;left:0;border-right:0;border-top:0}
+.fr img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:100% 30%;background:#cfe3e3}
+/* подвал */
+footer .w{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 28px;padding-top:22px;padding-bottom:12px}
+footer b{font-family:var(--disp);font-size:32px;font-weight:600;color:var(--teal-d)}
+footer .m{display:flex;align-items:center;gap:10px}
+.dis{border-top:1px solid var(--gold);text-align:center;font-style:italic;color:var(--mut);padding:12px 24px 20px;font-size:15px}
+@media (max-width:900px){
+.hero .w,.doc .w,.ct .w{grid-template-columns:1fr}
+.hero-t{padding:44px 24px}.hero-p,.hero-p img{clip-path:none;min-height:320px}
+.perk+.perk{border-left:0;padding-left:0}
+.svc .grid{grid-template-columns:1fr}.s:nth-child(odd){border-right:0}.s:nth-child(n+2){border-top:1px solid rgba(196,160,90,.7)}.s:nth-child(even){padding-left:8px}
+.st{grid-template-columns:1fr}.pair{grid-template-columns:1fr 1fr}
+.tel{border-left:0;padding-left:0}.row em{font-size:15px}.row{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div style="width:100%;background:#fbf8f4;display:flex;flex-direction:column">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="tooth" viewBox="0 0 24 24"><path d="M12 5c-2-1.8-6.5-1.4-7 2.6-.3 3 1.4 4.4 1.8 7 .4 2.8.7 6.4 2.4 6.4 1.4 0 1-3.8 2.8-3.8s1.4 3.8 2.8 3.8c1.7 0 2-3.6 2.4-6.4.4-2.6 2.1-4 1.8-7C18.500 3.600 14 3.200 12 5z"/></symbol>
+<symbol id="implant" viewBox="0 0 24 24"><path d="M6 3h12v5c0 2-2.500 3-6 3s-6-1-6-3z"/><path d="M9 13h6M9.500 15.500h5M10 18h4M11 20.500h2"/></symbol>
+<symbol id="brush" viewBox="0 0 24 24"><path d="M3 21l10-10"/><path d="M12 12l3-3 4 4-3 3zM14 6l1.500-1.500M17 8l1.500-1.500M19 10.500L20.500 9"/></symbol>
+<symbol id="head" viewBox="0 0 24 24"><path d="M9 3C5.500 3 3.500 5.800 3.500 9c0 2 1 3.200 1 5.300 0 1-.5 2-.5 3h4.500V21H15v-5c2 0 3-1 3-3v-1.200l2-.8-2-2.500C18 4.500 14.500 3 9 3z"/><path d="M8 11h2"/></symbol>
+<symbol id="leaf" viewBox="0 0 24 24"><path d="M12 21c-3.500-2-5.500-5.500-5-10 3 1 5 4.500 5 10zM12 21c3.500-2 5.500-5.500 5-10-3 1-5 4.500-5 10zM12 21c-2-3-2-7 0-12 2 5 2 9 0 12z"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.500"/></symbol>
+<symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.500"/><path d="M3 7l9 6.500L21 7"/></symbol>
+<symbol id="img" viewBox="0 0 24 24"><circle cx="16.500" cy="6.500" r="2"/><path d="M2 20l7.500-9 4.500 5 2.500-2.500L22 20z"/></symbol>
+</defs></svg>
 
-<!-- Шапка -->
-<header style="max-width:1200px;width:100%;margin:0 auto;padding:20px 24px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px">
-<a href="#top" style="text-decoration:none;display:flex;flex-direction:column;line-height:1">
-<span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:40px;font-weight:600;color:#1f2f42">Идеал</span>
-<span style="font-size:11px;letter-spacing:0.28em;color:#55606e;margin-top:4px">СТОМАТОЛОГИЯ</span>
-</a>
-<nav style="display:flex;flex-wrap:wrap;gap:10px 24px;font-size:14px;font-weight:600">
-<a href="#klinika" style="text-decoration:none">О клинике</a>
-<a href="#uslugi" style="text-decoration:none">Услуги</a>
-<a href="#vrach" style="text-decoration:none">Врач</a>
-<a href="#raboty" style="text-decoration:none">Работы</a>
-<a href="#ceny" style="text-decoration:none">Цены</a>
-<a href="otzyvy.html" style="text-decoration:none">Отзывы</a>
-<a href="#kontakty" style="text-decoration:none">Контакты</a>
-</nav>
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
-<span style="font-weight:700;font-size:15px">+7 (993) 040-45-46</span>
-<a href="#zapis" style="background:#1f2f42;color:#ffffff;font-weight:700;font-size:14px;text-decoration:none;padding:13px 24px;border-radius:999px">Записаться на приём</a>
-</div>
-</header>
+<header><div class="w">
+<a class="logo" href="#top" aria-label="Стоматология «Идеал», на главную"><img src="images/mark.jpg" alt=""><span><b>Идеал</b><small>СТОМАТОЛОГИЯ</small></span></a>
+<nav><a href="#vrach">О враче</a><a href="#uslugi">Услуги</a><a href="#ceny">Цены</a><a href="#kontakty">Контакты</a></nav>
+<a class="tel" href="#kontakty"><svg class="i"><use href="#phone"/></svg>+7 (993) 040-45-46</a>
+</div></header>
 
-<!-- Первый экран -->
-<section id="top" style="background:#f1ebe4">
-<div style="max-width:1200px;width:100%;margin:0 auto;padding:56px 24px 64px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;gap:40px">
-<div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px">
-<span style="font-size:13px;letter-spacing:0.2em;color:#55606e">СТОМАТОЛОГИЯ «ИДЕАЛ»</span>
-<h1 style="margin:0;font-size:68px;line-height:1.02;font-weight:600;text-wrap:balance">Здоровая улыбка — уверенность в себе</h1>
-<p style="margin:0;font-size:18px;line-height:1.6;color:#55606e;max-width:480px">Современная стоматология в Уфе. Вас ведёт один врач, Алина Хамзина, от консультации до результата.</p>
-<div style="display:flex;flex-wrap:wrap;gap:12px">
-<a href="#zapis" style="background:#1f2f42;color:#ffffff;font-weight:700;text-decoration:none;padding:16px 30px;border-radius:999px">Записаться на консультацию</a>
-<a href="#uslugi" style="border:1px solid #1f2f42;color:#1f2f42;font-weight:700;text-decoration:none;padding:15px 30px;border-radius:999px">Смотреть услуги</a>
+<main id="top">
+<section class="hero"><div class="w">
+<div class="hero-t">
+<h1>Ваша улыбка. Мой личный подход.</h1>
+<div class="rule"></div>
+<p>Алина Хамзина · стоматолог, гнатолог</p>
+<a class="btn" href="#kontakty">Записаться на приём</a>
 </div>
-<div style="display:flex;flex-wrap:wrap;gap:12px 28px;padding-top:12px;border-top:1px solid #d9cfc3;font-size:14px;color:#55606e">
-<span>Бесплатная консультация</span><span>Гарантия 1 год</span><span>Стаж врача 40 лет</span>
-</div>
-</div>
-<div style="flex:1 1 380px;min-width:0;display:flex;justify-content:center">
-<img src="images/priem.jpg" alt="Врач-стоматолог на приёме" style="width:100%;max-width:560px;aspect-ratio:4/3;object-fit:cover;object-position:60% 30%;border-radius:32px;background:#ffffff">
-</div>
-</div>
-</section>
+<div class="hero-p"><img src="images/hero.jpg" alt="Хамзина Алина Феликсовна, врач-стоматолог, в кабинете"></div>
+</div></section>
 
-<!-- О клинике -->
-<section id="klinika" style="max-width:1200px;width:100%;margin:0 auto;padding:88px 24px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:48px;align-items:center">
-<div style="flex:1 1 320px;min-width:0;display:flex;justify-content:center">
-<img src="images/logo.jpg" alt="Логотип стоматологии «Идеал»" style="width:100%;max-width:440px;aspect-ratio:1/1;object-fit:cover;border-radius:28px">
-</div>
-<div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px">
-<h2 style="margin:0;font-size:52px;font-weight:600;line-height:1.05">О клинике</h2>
-<p style="margin:0;font-size:18px;line-height:1.65;color:#55606e;max-width:560px">Стоматология «Идеал» работает в Уфе более 15 лет. Мы работаем с качественными импортными композитами и даём гарантию на выполненные работы.</p>
-<div style="display:flex;flex-wrap:wrap;gap:24px 40px;padding:8px 0">
-<div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:600;line-height:1">15+</span><span style="font-size:13px;color:#55606e">лет клиника работает в Уфе</span></div>
-<div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:600;line-height:1">40</span><span style="font-size:13px;color:#55606e">лет стаж врача</span></div>
-<div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:600;line-height:1">1 год</span><span style="font-size:13px;color:#55606e">гарантии на работы</span></div>
-</div>
-</div>
-<div style="flex:1 1 280px;min-width:0;background:#dfe4ec;border-radius:28px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
-<h3 style="margin:0;font-size:30px;font-weight:600">Наши принципы</h3>
-<span style="font-size:16px">Профессионализм</span>
-<span style="font-size:16px">Безопасность</span>
-<span style="font-size:16px">Эстетика</span>
-<span style="font-size:16px">Забота о пациентах</span>
-</div>
-</section>
+<div class="perks"><div class="w">
+<div class="perk"><svg class="i"><use href="#leaf"/></svg>Один врач на всех этапах</div>
+<div class="perk"><svg class="i"><use href="#tooth"/></svg>Понятный план лечения</div>
+<div class="perk"><svg class="i"><use href="#pin"/></svg>Уфа · Рязанская, 1/1</div>
+</div></div>
 
-<!-- Услуги -->
-<section id="uslugi" style="background:#f1ebe4">
-<div style="max-width:1200px;margin:0 auto;padding:80px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:36px">
-<div style="display:flex;flex-direction:column;gap:10px">
-<h2 style="margin:0;font-size:52px;font-weight:600;line-height:1.05">Направления нашей стоматологии</h2>
-<p style="margin:0;color:#55606e;font-size:17px;line-height:1.6;max-width:560px">Комплексный подход к здоровью и красоте вашей улыбки.</p>
+<section class="doc" id="vrach"><div class="w">
+<img src="images/consult.jpg" alt="Врач Алина Хамзина показывает пациентке снимок зубов">
+<div>
+<h2>Ваш врач — Алина Феликсовна Хамзина</h2>
+<div class="rule" style="margin-top:18px"></div>
+<p>Врач-стоматолог, гнатолог. Личное внимание к вашей ситуации — от знакомства до завершения лечения.</p>
+<a class="lnk" href="#dokumenty">Образование и документы →</a>
 </div>
-<div style="display:flex;flex-wrap:wrap;gap:16px">
-<div style="flex:1 1 240px;background:#fbf8f4;border-radius:24px;padding:28px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px"><h3 style="margin:0;font-size:28px;font-weight:600;line-height:1.1">Терапевтическая стоматология</h3><span style="color:#55606e;line-height:1.55;font-size:15px">Лечение кариеса и его осложнений качественными импортными композитами.</span></div>
-<div style="flex:1 1 240px;background:#fbf8f4;border-radius:24px;padding:28px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px"><h3 style="margin:0;font-size:28px;font-weight:600;line-height:1.1">Ортопедическая стоматология</h3><span style="color:#55606e;line-height:1.55;font-size:15px">Протезирование: восстановление зубов с учётом вашего случая.</span></div>
-<div style="flex:1 1 240px;background:#fbf8f4;border-radius:24px;padding:28px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px"><h3 style="margin:0;font-size:28px;font-weight:600;line-height:1.1">Гигиена и отбеливание</h3><span style="color:#55606e;line-height:1.55;font-size:15px">Профессиональная чистка и отбеливание зубов.</span></div>
-<div style="flex:1 1 240px;background:#fbf8f4;border-radius:24px;padding:28px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px"><h3 style="margin:0;font-size:28px;font-weight:600;line-height:1.1">Гнатология</h3><span style="color:#55606e;line-height:1.55;font-size:15px">[Опишите, с какими случаями работаете: прикус, жевательные мышцы, суставы.]</span></div>
-</div>
-</div>
-</section>
+</div></section>
 
-<!-- Врач -->
-<section id="vrach" style="max-width:1200px;width:100%;margin:0 auto;padding:88px 24px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:48px;align-items:center">
-<div style="flex:1 1 340px;min-width:0;display:flex;justify-content:center">
-<img src="images/portrait.jpg" alt="Хамзина Алина Феликсовна, врач-стоматолог" style="width:100%;max-width:440px;aspect-ratio:1/1;object-fit:cover;border-radius:28px;background:#ffffff">
+<section class="svc" id="uslugi"><div class="w">
+<div class="hl"><h2>Помогу сохранить здоровье и красоту улыбки</h2></div>
+<div class="grid">
+<div class="s"><svg class="i"><use href="#tooth"/></svg><div><h3>Лечение зубов</h3><p>Кариес и восстановление зубов</p></div></div>
+<div class="s"><svg class="i"><use href="#implant"/></svg><div><h3>Протезирование</h3><p>Восстановление утраченных зубов</p></div></div>
+<div class="s"><svg class="i"><use href="#brush"/></svg><div><h3>Гигиена и отбеливание</h3><p>Профессиональный уход за улыбкой</p></div></div>
+<div class="s"><svg class="i"><use href="#head"/></svg><div><h3>Гнатология</h3><p>Прикус, мышцы и суставы</p></div></div>
 </div>
-<div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px">
-<span style="font-size:13px;letter-spacing:0.2em;color:#55606e">ВАШ ВРАЧ</span>
-<h2 style="margin:0;font-size:52px;font-weight:600;line-height:1.05">Хамзина Алина Феликсовна</h2>
-<p style="margin:0;font-size:18px;line-height:1.65;color:#55606e">Врач-стоматолог, гнатолог. Стаж 40 лет. В клинике «Идеал» принимает с 2000 года. Регулярно проходит обучение: последние курсы по ортодонтии без брекетов и композитным винирам.</p>
-<div style="display:flex;flex-direction:column;border-top:1px solid #d9cfc3">
-<div style="display:flex;gap:24px;padding:16px 0;border-bottom:1px solid #d9cfc3"><span style="font-weight:700;min-width:96px">1986</span><span style="color:#55606e">Первый Санкт-Петербургский медицинский университет им. И. П. Павлова, стоматология</span></div>
-<div style="display:flex;gap:24px;padding:16px 0;border-bottom:1px solid #d9cfc3"><span style="font-weight:700;min-width:96px">2005–2007</span><span style="color:#55606e">Терапевтическая стоматология, эстетическая реставрация, эндодонтия</span></div>
-<div style="display:flex;gap:24px;padding:16px 0;border-bottom:1px solid #d9cfc3"><span style="font-weight:700;min-width:96px">2024</span><span style="color:#55606e">Ортодонтия без брекетов, композитные виниры без препарирования</span></div>
-</div>
-</div>
-</section>
+</div></section>
 
-<!-- Работы -->
-<section id="raboty" style="background:#f1ebe4">
-<div style="max-width:1200px;margin:0 auto;padding:80px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:32px">
-<h2 style="margin:0;font-size:52px;font-weight:600;line-height:1.05">Наши работы</h2>
-<div style="display:flex;flex-wrap:wrap;gap:20px">
-<div style="flex:1 1 320px;display:flex;flex-direction:column;gap:10px"><div style="min-height:220px;background:#dfe4ec;border-radius:24px;display:flex;align-items:center;justify-content:center;color:#3a5272;font-weight:600">Фото «до»</div><div style="min-height:220px;background:#cfd7e3;border-radius:24px;display:flex;align-items:center;justify-content:center;color:#3a5272;font-weight:600">Фото «после»</div><span style="font-weight:700">[Название услуги]</span></div>
-<div style="flex:1 1 320px;display:flex;flex-direction:column;gap:10px"><div style="min-height:220px;background:#dfe4ec;border-radius:24px;display:flex;align-items:center;justify-content:center;color:#3a5272;font-weight:600">Фото «до»</div><div style="min-height:220px;background:#cfd7e3;border-radius:24px;display:flex;align-items:center;justify-content:center;color:#3a5272;font-weight:600">Фото «после»</div><span style="font-weight:700">[Название услуги]</span></div>
-<div style="flex:1 1 320px;display:flex;flex-direction:column;gap:10px"><div style="min-height:220px;background:#dfe4ec;border-radius:24px;display:flex;align-items:center;justify-content:center;color:#3a5272;font-weight:600">Фото «до»</div><div style="min-height:220px;background:#cfd7e3;border-radius:24px;display:flex;align-items:center;justify-content:center;color:#3a5272;font-weight:600">Фото «после»</div><span style="font-weight:700">[Название услуги]</span></div>
+<section class="steps"><div class="w">
+<div class="hl"><h2>Как проходит приём</h2></div>
+<div class="st">
+<div><i>01</i><span>Знакомство<br>и осмотр</span></div>
+<div><i>02</i><span>Обсуждение<br>плана</span></div>
+<div><i>03</i><span>Лечение<br>и рекомендации</span></div>
 </div>
-</div>
-</section>
+</div></section>
 
-<!-- Цены -->
-<section id="ceny" style="max-width:900px;width:100%;margin:0 auto;padding:88px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:28px">
-<div style="display:flex;flex-direction:column;gap:10px">
-<h2 style="margin:0;font-size:52px;font-weight:600;line-height:1.05">Прайс-лист</h2>
-<p style="margin:0;color:#55606e;font-size:17px;line-height:1.6">Прозрачные цены. Точную стоимость лечения врач называет после осмотра, до начала работы.</p>
+<section class="res"><div class="w">
+<div class="hl"><h2>Результаты лечения</h2></div>
+<div class="pair">
+<div class="ph"><svg class="i"><use href="#img"/></svg><span>До</span></div>
+<div class="ph"><svg class="i"><use href="#img"/></svg><span>После</span></div>
+<div class="ph"><svg class="i"><use href="#img"/></svg><span>До</span></div>
+<div class="ph"><svg class="i"><use href="#img"/></svg><span>После</span></div>
 </div>
-<div style="display:flex;flex-direction:column;border-top:1px solid #d9cfc3">
-<div style="display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid #d9cfc3"><span style="font-weight:600">Консультация врача</span><span style="font-weight:700">Бесплатно</span></div>
-<div style="display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid #d9cfc3"><span style="font-weight:600">Лечение кариеса</span><span style="font-weight:700">от [ЦЕНА] ₽</span></div>
-<div style="display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid #d9cfc3"><span style="font-weight:600">Профессиональная чистка</span><span style="font-weight:700">от [ЦЕНА] ₽</span></div>
-<div style="display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid #d9cfc3"><span style="font-weight:600">Отбеливание</span><span style="font-weight:700">от [ЦЕНА] ₽</span></div>
-<div style="display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid #d9cfc3"><span style="font-weight:600">Протезирование</span><span style="font-weight:700">от [ЦЕНА] ₽</span></div>
-</div>
-</section>
+<p class="note">Фотографии работ появятся после согласования с пациентами</p>
+</div></section>
 
-<!-- Отзывы -->
-<section id="otzyvy" style="background:#1f2f42;color:#ffffff">
-<div style="max-width:1200px;margin:0 auto;padding:72px 24px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:24px 48px;align-items:center;justify-content:space-between">
-<div style="display:flex;flex-direction:column;gap:10px;max-width:560px">
-<h2 style="margin:0;font-size:52px;font-weight:600;line-height:1.05">Что говорят пациенты</h2>
-<span style="color:#d3dae4;font-size:16px;line-height:1.6">Рейтинг врача на ProDoctorov: 4.4, 7 отзывов. Прочитать их можно на странице врача.</span>
-</div>
-<a href="otzyvy.html" style="background:#ffffff;color:#1f2f42;font-weight:700;text-decoration:none;padding:16px 30px;border-radius:999px">Смотреть отзывы</a>
-</div>
-</section>
+<section class="pr" id="ceny"><div class="w">
+<div class="hl"><h2>Стоимость без неожиданностей</h2></div>
+<p class="sub">Обсудим план и стоимость до начала лечения.</p>
+<a class="row" href="#kontakty"><svg class="i"><use href="#tooth"/></svg>Лечение кариеса<em>Уточнить стоимость ›</em></a>
+<a class="row" href="#kontakty"><svg class="i"><use href="#brush"/></svg>Профессиональная гигиена<em>Уточнить стоимость ›</em></a>
+<a class="row" href="#kontakty"><svg class="i"><use href="#tooth"/></svg>Отбеливание<em>Уточнить стоимость ›</em></a>
+<a class="row" href="#kontakty"><svg class="i"><use href="#implant"/></svg>Протезирование<em>Уточнить стоимость ›</em></a>
+</div></section>
 
-<!-- Вопросы -->
-<section id="voprosy" style="max-width:900px;width:100%;margin:0 auto;padding:88px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:28px">
-<h2 style="margin:0;font-size:52px;font-weight:600;line-height:1.05">Частые вопросы</h2>
-<div style="display:flex;flex-direction:column;gap:12px">
-<details style="background:#f1ebe4;border-radius:20px;padding:22px 28px"><summary style="font-weight:700;font-size:17px">Сколько стоит лечение и можно ли платить частями?</summary><p style="margin:14px 0 0;line-height:1.6;color:#55606e">Точную цену называю после осмотра, до начала лечения. [Условия рассрочки, если есть.]</p></details>
-<details style="background:#f1ebe4;border-radius:20px;padding:22px 28px"><summary style="font-weight:700;font-size:17px">Лечите ли вы детей?</summary><p style="margin:14px 0 0;line-height:1.6;color:#55606e">[Ответьте: с какого возраста принимаете.]</p></details>
-<details style="background:#f1ebe4;border-radius:20px;padding:22px 28px"><summary style="font-weight:700;font-size:17px">Есть ли гарантия на работу?</summary><p style="margin:14px 0 0;line-height:1.6;color:#55606e">Да, на выполненные работы мы даём гарантию 1 год.</p></details>
-<details style="background:#f1ebe4;border-radius:20px;padding:22px 28px"><summary style="font-weight:700;font-size:17px">Лечить будете вы сами или помощник?</summary><p style="margin:14px 0 0;line-height:1.6;color:#55606e">Все этапы лечения провожу сама.</p></details>
-<details style="background:#f1ebe4;border-radius:20px;padding:22px 28px"><summary style="font-weight:700;font-size:17px">Что делать, если болит зуб прямо сейчас?</summary><p style="margin:14px 0 0;line-height:1.6;color:#55606e">Позвоните по телефону +7 (993) 040-45-46. Принимаем с понедельника по пятницу с 09:00 до 20:00.</p></details>
-</div>
-</section>
+<section class="rv" id="otzyvy"><div class="w">
+<div class="q" aria-hidden="true">“</div>
+<div style="flex:1 1 320px"><h2>Ваше доверие — главное</h2><p>Отзывы пациентов о враче на ПроДокторов. Рейтинг 4.4, 7 отзывов.</p></div>
+<a class="btn o" href="otzyvy.html">Читать отзывы →</a>
+</div></section>
 
-<!-- Запись -->
-<section id="dokumenty" style="background:#f1ebe4">
-<div style="max-width:900px;width:100%;margin:0 auto;padding:88px 24px;box-sizing:border-box;display:flex;flex-direction:column;gap:28px">
-<div style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0;font-size:52px;font-weight:600;line-height:1.05">Документы</h2><p style="margin:0;color:#55606e;font-size:17px;line-height:1.6">Лицензия, правила записи, договор и нормативные акты. Всё, что пациент вправе знать до приёма.</p></div>
-<details style="background:#fbf8f4;border-radius:20px;padding:22px 28px"><summary style="font-weight:700;font-size:17px">Лицензия</summary><div style="display:flex;flex-direction:column;gap:12px;margin-top:16px"><a href="https://idealstomatufa.ru/thumb/2/bqjan26pMvk64QVv0X3gXw/r/d/48597929.jpg" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Лицензия, страница 1</a><a href="https://idealstomatufa.ru/thumb/2/-WWOKwTnv-pDQYW-UqsBpQ/r/d/48597930.jpg" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Лицензия, страница 2</a><a href="https://disk.yandex.ru/i/e-pTZkZzG1uAQw" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Информация о лицензии</a></div></details>
-<details style="background:#fbf8f4;border-radius:20px;padding:22px 28px"><summary style="font-weight:700;font-size:17px">Документы организации</summary><div style="display:flex;flex-direction:column;gap:12px;margin-top:16px"><a href="https://idealstomatufa.ru/f/svedeniya_o_yuridicheskom_lice.docx?dl=1" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Сведения о юридическом лице</a><a href="https://idealstomatufa.ru/f/svidetelstvo_o_gosregistracii_ideal_1.pdf?dl=1" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Свидетельство о государственной регистрации</a><a href="https://idealstomatufa.ru/f/svidetelstvo_o_postanovke_na_uchet_ooo_ideal.pdf?dl=1" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Свидетельство о постановке на налоговый учёт</a><a href="https://disk.yandex.ru/i/_a3V8oZ61Sj7Xg" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Сведения о медицинских работниках</a></div></details>
-<details style="background:#fbf8f4;border-radius:20px;padding:22px 28px"><summary style="font-weight:700;font-size:17px">Для пациентов</summary><div style="display:flex;flex-direction:column;gap:12px;margin-top:16px"><a href="https://idealstomatufa.ru/f/pravila_zapisi_na_pervichnyj_priyem.docx?dl=1" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Правила записи на первичный приём</a><a href="https://idealstomatufa.ru/f/chasy_priema.docx?dl=1" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Часы приёма</a><a href="https://idealstomatufa.ru/f/polozhenie_o_garantiyah_ideal.docx?dl=1" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Положение о гарантиях</a><a href="https://idealstomatufa.ru/f/dogovor_ob_okazanii_platnyh_medicinskih_uslug.doc" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Договор об оказании платных медицинских услуг</a><a href="https://disk.yandex.ru/i/sU6PwGy7SCu2Lg" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Прайс-лист (файл со старого сайта)</a><a href="https://idealstomatufa.ru/f/politika_konfendicialnosti.doc?dl=1" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Политика конфиденциальности</a><a href="https://gkb8-ufa.ru/upload/medialibrary/50d/mi37yze2vgvfhy39yjc0yxktjbd2p10e.pdf" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Сроки ожидания платных услуг</a></div></details>
-<details style="background:#fbf8f4;border-radius:20px;padding:22px 28px"><summary style="font-weight:700;font-size:17px">Законы и порядки</summary><div style="display:flex;flex-direction:column;gap:12px;margin-top:16px"><a href="https://minzdrav.gov.ru/documents/7025-federalnyy-zakon-323-fz-ot-21-noyabrya-2011-g" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">ФЗ № 323 «Об основах охраны здоровья граждан»</a><a href="https://idealstomatufa.ru/f/zakon_rf_ot_070292_n_2300-i_o_zashchite_prav_potrebitelej.rtf?dl=1" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Закон «О защите прав потребителей» № 2300-1</a><a href="http://pravo.gov.ru/proxy/ips/?docbody=&amp;nd=102143352" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">ФЗ № 326 «Об обязательном медицинском страховании»</a><a href="https://idealstomatufa.ru/f/fz_o_sanitarno-epidemiologicheskom_blagopoluchii_naseleniya_no52-fz_ot_30_marta_1999_goda.doc?dl=1" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">ФЗ № 52 о санитарно-эпидемиологическом благополучии</a><a href="http://publication.pravo.gov.ru/Document/View/0001202305120025" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Правила предоставления платных медуслуг (Постановление № 736)</a><a href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=264241" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Правила ОМС (приказ № 158н)</a><a href="http://publication.pravo.gov.ru/Document/View/0001202010020020" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Порядок помощи при стоматологических заболеваниях (приказ № 786н)</a><a href="https://minzdrav.gov.ru/documents/8368-prikaz-ministerstva-zdravoohraneniya-rossiyskoy-federatsii-ot-24-dekabrya-2012-g-1526n-ob-utverzhdenii-standarta-pervichnoy-mediko-sanitarnoy-pomoschi-pri-kariese-dentina-i-tsementa" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Стандарт при кариесе дентина и цемента (приказ № 1526н)</a><a href="https://minzdrav.gov.ru/documents/8367-prikaz-ministerstva-zdravoohraneniya-rossiyskoy-federatsii-ot-24-dekabrya-2012-g-1490n-ob-utverzhdenii-standarta-pervichnoy-mediko-sanitarnoy-pomoschi-pri-priostanovivshemsya-kariese-i-kariese-emali" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Стандарт при кариесе эмали (приказ № 1490н)</a><a href="https://idealstomatufa.ru/f/standarty_okazaniya_medicinskoj_pomoshchi.pdf?dl=1" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Стандарты оказания медицинской помощи (PDF)</a></div></details>
-<details style="background:#fbf8f4;border-radius:20px;padding:22px 28px"><summary style="font-weight:700;font-size:17px">Программы государственных гарантий</summary><div style="display:flex;flex-direction:column;gap:12px;margin-top:16px"><a href="http://publication.pravo.gov.ru/document/0001202512300036" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Постановление РФ № 2188 (на 2026 год)</a><a href="https://idealstomatufa.ru/f/pggrb.pdf" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Программа госгарантий, 2025 год (PDF)</a><a href="https://idealstomatufa.ru/f/programma_gosgarantii_rb_2026.pdf" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Постановление Правительства РБ № 667 (на 2026 год)</a><a href="https://salskcrb.ru/files/pdf/ZHNVLP2026.pdf" target="_blank" rel="noopener" style="color:#1f2f42;line-height:1.5">Перечень ЖНВЛП на 2026 год</a></div></details>
+<section class="faq" id="voprosy"><div class="w">
+<div class="hl"><h2>Перед первым визитом</h2></div>
+<div style="margin-top:18px">
+<details open><summary>Как узнать стоимость лечения?</summary><p>После осмотра врач обсудит с вами варианты и стоимость лечения.</p></details>
+<details><summary>Как записаться на приём?</summary><p>Позвоните по телефону +7 (993) 040-45-46. Принимаем с понедельника по пятницу с 09:00 до 20:00, мы подберём удобное время.</p></details>
+<details><summary>Что взять с собой?</summary><p>Паспорт и, если есть, снимки и выписки о прежнем лечении.</p></details>
 </div>
-</section>
+</div></section>
 
-<section id="zapis" style="max-width:1200px;width:100%;margin:0 auto;padding:0 24px 88px;box-sizing:border-box">
-<div style="background:#dfe4ec;border-radius:32px;padding:48px 40px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;justify-content:space-between">
-<div style="display:flex;flex-direction:column;gap:8px;max-width:520px">
-<h2 style="margin:0;font-size:44px;font-weight:600;line-height:1.05">Запишитесь на приём</h2>
-<p style="margin:0;color:#3d4c5e;line-height:1.6">Принимаем пн.–пт. с 09:00 до 20:00, суббота и воскресенье выходные. Позвоните, и мы подберём время.</p>
+<section class="docs" id="dokumenty"><div class="w">
+<div class="hl"><h2>Документы клиники</h2></div>
+<div class="dg">
+<details><summary>Лицензия</summary>
+<a href="d_licenziya1.html">Лицензия, страница 1</a>
+<a href="d_licenziya2.html">Лицензия, страница 2</a>
+<a href="https://disk.yandex.ru/i/e-pTZkZzG1uAQw" target="_blank" rel="noopener">Информация о лицензии</a></details>
+<details><summary>Документы организации</summary>
+<a href="d_svedeniya_o_yuridicheskom_lice.html">Сведения о юридическом лице</a>
+<a href="d_svid_gosreg.html">Свидетельство о государственной регистрации</a>
+<a href="d_svid_nalog.html">Свидетельство о постановке на налоговый учёт</a>
+<a href="https://disk.yandex.ru/i/_a3V8oZ61Sj7Xg" target="_blank" rel="noopener">Сведения о медицинских работниках</a></details>
+<details><summary>Правила и информация для пациентов</summary>
+<a href="d_pravila_zapisi_na_pervichnyj_priyem.html">Правила записи на первичный приём</a>
+<a href="d_chasy_priema.html">Часы приёма</a>
+<a href="d_polozhenie_o_garantiyah_ideal.html">Положение о гарантиях</a>
+<a href="d_dogovor_ob_okazanii_platnyh_medicinskih_uslug.html">Договор об оказании платных медицинских услуг</a>
+<a href="https://disk.yandex.ru/i/sU6PwGy7SCu2Lg" target="_blank" rel="noopener">Прайс-лист (файл со старого сайта)</a>
+<a href="d_politika_konfendicialnosti.html">Политика конфиденциальности</a>
+<a href="https://gkb8-ufa.ru/upload/medialibrary/50d/mi37yze2vgvfhy39yjc0yxktjbd2p10e.pdf" target="_blank" rel="noopener">Сроки ожидания платных услуг</a></details>
+<details><summary>Законы и порядки</summary>
+<a href="https://minzdrav.gov.ru/documents/7025-federalnyy-zakon-323-fz-ot-21-noyabrya-2011-g" target="_blank" rel="noopener">ФЗ № 323 «Об основах охраны здоровья граждан»</a>
+<a href="d_zakon_o_zashchite_prav_potrebitelej.html">Закон «О защите прав потребителей» № 2300-1</a>
+<a href="http://pravo.gov.ru/proxy/ips/?docbody=&amp;nd=102143352" target="_blank" rel="noopener">ФЗ № 326 «Об обязательном медицинском страховании»</a>
+<a href="d_fz_52_sanepid.html">ФЗ № 52 о санитарно-эпидемиологическом благополучии</a>
+<a href="http://publication.pravo.gov.ru/Document/View/0001202305120025" target="_blank" rel="noopener">Правила предоставления платных медуслуг (Постановление № 736)</a>
+<a href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=264241" target="_blank" rel="noopener">Правила ОМС (приказ № 158н)</a>
+<a href="http://publication.pravo.gov.ru/Document/View/0001202010020020" target="_blank" rel="noopener">Порядок помощи при стоматологических заболеваниях (приказ № 786н)</a>
+<a href="docs/standarty_okazaniya_medicinskoj_pomoshchi.pdf">Стандарты оказания медицинской помощи (PDF)</a></details>
+<details><summary>Программы государственных гарантий</summary>
+<a href="http://publication.pravo.gov.ru/document/0001202512300036" target="_blank" rel="noopener">Постановление РФ № 2188 (на 2026 год)</a>
+<a href="docs/pggrb_2025.pdf">Программа госгарантий, 2025 год (PDF)</a>
+<a href="docs/programma_gosgarantii_rb_2026.pdf">Постановление Правительства РБ № 667 (на 2026 год)</a>
+<a href="https://salskcrb.ru/files/pdf/ZHNVLP2026.pdf" target="_blank" rel="noopener">Перечень ЖНВЛП на 2026 год</a></details>
 </div>
-<a href="#zapis" style="background:#1f2f42;color:#ffffff;font-weight:700;font-size:18px;text-decoration:none;padding:18px 36px;border-radius:999px">+7 (993) 040-45-46</a>
-</div>
-</section>
+</div></section>
 
-<!-- Подвал -->
-<footer id="kontakty" style="background:#1f2f42;color:#e8edf3">
-<div style="max-width:1200px;margin:0 auto;padding:56px 24px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:32px 48px;justify-content:space-between">
-<div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:36px;font-weight:600;color:#ffffff;line-height:1">Идеал</span><span style="font-size:11px;letter-spacing:0.28em;color:#d3dae4">СТОМАТОЛОГИЯ</span><span style="font-size:14px;color:#d3dae4;margin-top:8px">ООО «Идеал». Стоматология и ортопедия.</span></div>
-<div style="display:flex;flex-direction:column;gap:8px;font-size:15px"><span>г. Уфа, ул. Рязанская, 1/1</span><span>+7 (993) 040-45-46</span><span>idealstomat@bk.ru</span><span>Пн.–пт. 09:00–20:00</span></div>
-<div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#d3dae4;max-width:380px"><span>Имеются противопоказания. Необходима консультация специалиста.</span><span>Лицензия № [НОМЕР] от [ДАТА]. Документы и правила оказания платных услуг: <a href="#dokumenty" style="color:#e8edf3">смотреть</a></span><span>© 2026 Стоматология «Идеал»</span></div>
+<section class="ct" id="kontakty"><div class="w">
+<div>
+<h2>Начнём с консультации</h2>
+<a class="ln big" href="tel:+79930404546"><svg class="i"><use href="#phone"/></svg>+7 (993) 040-45-46</a>
+<div class="ln"><svg class="i"><use href="#pin"/></svg>Уфа, ул. Рязанская, 1/1</div>
+<div class="ln"><svg class="i"><use href="#clock"/></svg>Пн–пт · 09:00–20:00</div>
+<a class="btn" href="tel:+79930404546">Позвонить в клинику</a>
 </div>
+<div class="fr"><img src="images/lechenie.jpg" alt="Врач Алина Хамзина лечит пациентку"></div>
+</div></section>
+</main>
+
+<div class="lg"><img src="images/logo.jpg" alt="Логотип стоматологии «Идеал»"></div>
+<footer>
+<div class="w">
+<div><b>Идеал</b> · Стоматология</div>
+<div>ООО «Идеал»</div>
+<div class="m gi"><svg class="i" style="font-size:24px"><use href="#mail"/></svg><span style="color:var(--ink)">idealstomat@bk.ru</span></div>
+</div>
+<div class="dis">Имеются противопоказания. Необходима консультация специалиста. © 2026 Стоматология «Идеал»</div>
 </footer>
-
-</div>
 </body>
 </html>
