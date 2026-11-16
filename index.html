@@ -131,6 +131,30 @@ footer .w{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-b
 footer b{font-family:var(--disp);font-size:32px;font-weight:600;color:var(--teal-d)}
 footer .m{display:flex;align-items:center;gap:10px}
 .dis{border-top:1px solid var(--gold);text-align:center;font-style:italic;color:var(--mut);padding:12px 24px 20px;font-size:15px}
+/* сертификаты */
+.cert{padding:44px 0 52px;background:var(--cream)}
+.cert-lead{margin:18px 0 28px;font-size:19px;max-width:760px}
+.cgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:26px 22px}
+.sc{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:6px;width:100%;height:100%}
+.sc:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.sci{display:block;position:relative;width:100%;aspect-ratio:3/4;background:#fff;border:1px solid var(--gold);box-sizing:border-box;transition:box-shadow .2s,transform .2s}
+.sc:hover .sci{box-shadow:0 8px 22px rgba(28,58,66,.18);transform:translateY(-3px)}
+.sci img{position:absolute;left:10px;top:10px;width:calc(100% - 20px);height:calc(100% - 20px);object-fit:contain;display:block}
+.scy{font-family:var(--disp);font-size:30px;line-height:1;color:var(--gold-d);margin-top:8px}
+.sct{font-size:17px;line-height:1.3;color:var(--ink)}
+.scs{font-size:15px;line-height:1.35;color:var(--mut)}
+#lb{border:0;padding:0;background:transparent;max-width:min(96vw,1100px);max-height:96vh;width:100%;color:#fff;overflow:visible}
+#lb::backdrop{background:rgba(10,30,34,.88)}
+#lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px}
+#lb img{max-width:100%;max-height:82vh;object-fit:contain;background:#fff;display:block}
+#lb figcaption{font-size:17px;line-height:1.4;text-align:center;max-width:820px;padding:8px 56px;background:rgba(10,30,34,.85)}
+.lbx,.lbn{all:unset;box-sizing:border-box;cursor:pointer;position:absolute;width:48px;height:48px;border-radius:50%;background:var(--cream);color:var(--teal-d);font-size:34px;line-height:46px;text-align:center}
+.lbx{top:-6px;right:-6px;z-index:2}
+.lbn{top:42%}.lbp{left:-6px}.lbf{right:-6px}
+.lbx:hover,.lbn:hover{background:var(--gold);color:#fff}
+.lbx:focus-visible,.lbn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media (max-width:1000px){.cgrid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.cgrid{grid-template-columns:repeat(2,1fr);gap:20px 14px}.sct{font-size:16px}.scs{font-size:14px}#lb figcaption{padding:10px 12px 62px}.lbn{top:auto;bottom:-4px}.lbp{left:8px}.lbf{right:8px}}
 @media (max-width:900px){
 .hero .w,.doc .w,.ct .w{grid-template-columns:1fr}
 .hero-t{padding:44px 24px}.hero-p,.hero-p img{clip-path:none;min-height:320px}
@@ -185,9 +209,59 @@ footer .m{display:flex;align-items:center;gap:10px}
 <h2>Ваш врач — Алина Феликсовна Хамзина</h2>
 <div class="rule" style="margin-top:18px"></div>
 <p>Врач-стоматолог, гнатолог. Личное внимание к вашей ситуации — от знакомства до завершения лечения.</p>
-<a class="lnk" href="#dokumenty">Образование и документы →</a>
+<a class="lnk" href="#sertifikaty">Образование и сертификаты →</a>
+<a class="lnk" href="#dokumenty" style="margin-left:22px">Документы клиники →</a>
 </div>
 </div></section>
+
+<section class="cert" id="sertifikaty"><div class="w">
+<div class="hl"><h2>Образование и сертификаты</h2></div>
+<p class="cert-lead">Врач постоянно учится: курсы по реставрации, эндодонтии и эстетической стоматологии. Нажмите на сертификат, чтобы рассмотреть его крупно.</p>
+<ul class="cgrid">
+<li><button type="button" class="sc" data-i="0"><span class="sci"><img src="images/sert/t-01-2026-restavratsiya.jpg" alt="Сертификат 2026: Курс «Реставрация зубов»" loading="lazy"></span><span class="scy">2026</span><span class="sct">Курс «Реставрация зубов»</span><span class="scs">Лекторий 196, Уфа, 15–16 апреля 2026</span></button></li>
+<li><button type="button" class="sc" data-i="1"><span class="sci"><img src="images/sert/t-02-2024-perednyaya-gruppa.jpg" alt="Сертификат 2024: «Реставрация передней группы зубов»" loading="lazy"></span><span class="scy">2024</span><span class="sct">«Реставрация передней группы зубов»</span><span class="scs">Практический мастер-класс, Уфа, 15 ноября 2024</span></button></li>
+<li><button type="button" class="sc" data-i="2"><span class="sci"><img src="images/sert/t-03-2024-vinyry.jpg" alt="Сертификат 2024: «Композитные виниры без препарирования»" loading="lazy"></span><span class="scy">2024</span><span class="sct">«Композитные виниры без препарирования»</span><span class="scs">Практический курс, Уфа, ноябрь 2024</span></button></li>
+<li><button type="button" class="sc" data-i="3"><span class="sci"><img src="images/sert/t-04-2022-starsmile.jpg" alt="Сертификат 2022: «Ортодонтия без брекетов»" loading="lazy"></span><span class="scy">2022</span><span class="sct">«Ортодонтия без брекетов»</span><span class="scs">Star Smile, курс Basic, Уфа, 2022</span></button></li>
+<li><button type="button" class="sc" data-i="4"><span class="sci"><img src="images/sert/t-05-2016-dental-akademiya.jpg" alt="Сертификат 2016: «Функциональная реабилитация зубов после эндодонтического лечения»" loading="lazy"></span><span class="scy">2016</span><span class="sct">«Функциональная реабилитация зубов после эндодонтического лечения»</span><span class="scs">«Дентал Академия», Уфа, 2 марта 2016</span></button></li>
+<li><button type="button" class="sc" data-i="5"><span class="sci"><img src="images/sert/t-06-2016-dental-guru.jpg" alt="Сертификат 2016: «Прямая реставрация передних зубов: эстетика, морфология, функция»" loading="lazy"></span><span class="scy">2016</span><span class="sct">«Прямая реставрация передних зубов: эстетика, морфология, функция»</span><span class="scs">Международный учебный центр Dental Guru, Уфа, 21 мая 2016</span></button></li>
+<li><button type="button" class="sc" data-i="6"><span class="sci"><img src="images/sert/t-07-2014-tokuyama.jpg" alt="Сертификат 2014: «Безупречная эстетическая реставрация»" loading="lazy"></span><span class="scy">2014</span><span class="sct">«Безупречная эстетическая реставрация»</span><span class="scs">Семинар по материалам Tokuyama, 5 декабря 2014</span></button></li>
+<li><button type="button" class="sc" data-i="7"><span class="sci"><img src="images/sert/t-08-2011-ultradent.jpg" alt="Сертификат 2011: «Эстетическая реставрация. Отбеливание зубов»" loading="lazy"></span><span class="scy">2011</span><span class="sct">«Эстетическая реставрация. Отбеливание зубов»</span><span class="scs">Ultradent, 18 ноября 2011</span></button></li>
+<li><button type="button" class="sc" data-i="8"><span class="sci"><img src="images/sert/t-09-2007-3m.jpg" alt="Сертификат 2007: «Тенденции развития современной реставрационной стоматологии»" loading="lazy"></span><span class="scy">2007</span><span class="sct">«Тенденции развития современной реставрационной стоматологии»</span><span class="scs">3M ESPE, Уфа, 3 октября 2007</span></button></li>
+<li><button type="button" class="sc" data-i="9"><span class="sci"><img src="images/sert/t-10-2007-vdw.jpg" alt="Сертификат 2007: Международный симпозиум по эндодонтии" loading="lazy"></span><span class="scy">2007</span><span class="sct">Международный симпозиум по эндодонтии</span><span class="scs">VDW Endodontic Synergy, Москва, сентябрь 2007</span></button></li>
+<li><button type="button" class="sc" data-i="10"><span class="sci"><img src="images/sert/t-11-2005-3m-oshibki.jpg" alt="Сертификат 2005: «Пути преодоления ошибок и осложнений при эстетической реставрации зубов»" loading="lazy"></span><span class="scy">2005</span><span class="sct">«Пути преодоления ошибок и осложнений при эстетической реставрации зубов»</span><span class="scs">3M ESPE, 10 марта 2005</span></button></li>
+<li><button type="button" class="sc" data-i="11"><span class="sci"><img src="images/sert/t-12-2005-3m-master-klass.jpg" alt="Сертификат 2005: «Современные технологии в терапевтической стоматологии»" loading="lazy"></span><span class="scy">2005</span><span class="sct">«Современные технологии в терапевтической стоматологии»</span><span class="scs">Мастер-класс 3M ESPE, 8 июня 2005</span></button></li>
+<li><button type="button" class="sc" data-i="12"><span class="sci"><img src="images/sert/t-13-1993-diplom.jpg" alt="Сертификат 1993: «Современные пломбировочные материалы»" loading="lazy"></span><span class="scy">1993</span><span class="sct">«Современные пломбировочные материалы»</span><span class="scs">Диплом обучающего центра, 4–8 октября 1993</span></button></li>
+</ul>
+</div></section>
+
+<dialog id="lb" aria-label="Сертификат крупно"><button type="button" class="lbx" aria-label="Закрыть">×</button><button type="button" class="lbn lbp" aria-label="Предыдущий сертификат">‹</button><figure><img id="lbi" alt=""><figcaption id="lbc"></figcaption></figure><button type="button" class="lbn lbf" aria-label="Следующий сертификат">›</button></dialog>
+<script>
+(function(){
+var L=[
+["images/sert/01-2026-restavratsiya.jpg","2026 · Курс «Реставрация зубов». Лекторий 196, Уфа, 15–16 апреля 2026"],
+["images/sert/02-2024-perednyaya-gruppa.jpg","2024 · «Реставрация передней группы зубов». Практический мастер-класс, Уфа, 15 ноября 2024"],
+["images/sert/03-2024-vinyry.jpg","2024 · «Композитные виниры без препарирования». Практический курс, Уфа, ноябрь 2024"],
+["images/sert/04-2022-starsmile.jpg","2022 · «Ортодонтия без брекетов». Star Smile, курс Basic, Уфа, 2022"],
+["images/sert/05-2016-dental-akademiya.jpg","2016 · «Функциональная реабилитация зубов после эндодонтического лечения». «Дентал Академия», Уфа, 2 марта 2016"],
+["images/sert/06-2016-dental-guru.jpg","2016 · «Прямая реставрация передних зубов: эстетика, морфология, функция». Международный учебный центр Dental Guru, Уфа, 21 мая 2016"],
+["images/sert/07-2014-tokuyama.jpg","2014 · «Безупречная эстетическая реставрация». Семинар по материалам Tokuyama, 5 декабря 2014"],
+["images/sert/08-2011-ultradent.jpg","2011 · «Эстетическая реставрация. Отбеливание зубов». Ultradent, 18 ноября 2011"],
+["images/sert/09-2007-3m.jpg","2007 · «Тенденции развития современной реставрационной стоматологии». 3M ESPE, Уфа, 3 октября 2007"],
+["images/sert/10-2007-vdw.jpg","2007 · Международный симпозиум по эндодонтии. VDW Endodontic Synergy, Москва, сентябрь 2007"],
+["images/sert/11-2005-3m-oshibki.jpg","2005 · «Пути преодоления ошибок и осложнений при эстетической реставрации зубов». 3M ESPE, 10 марта 2005"],
+["images/sert/12-2005-3m-master-klass.jpg","2005 · «Современные технологии в терапевтической стоматологии». Мастер-класс 3M ESPE, 8 июня 2005"],
+["images/sert/13-1993-diplom.jpg","1993 · «Современные пломбировочные материалы». Диплом обучающего центра, 4–8 октября 1993"]];
+var lb=document.getElementById('lb'),im=document.getElementById('lbi'),cp=document.getElementById('lbc'),k=0,opener=null;
+function show(n){k=(n+L.length)%L.length;im.src=L[k][0];im.alt='Сертификат: '+L[k][1];cp.textContent=L[k][1]}
+document.querySelectorAll('.sc').forEach(function(b){b.addEventListener('click',function(){opener=b;show(+b.dataset.i);lb.showModal()})});
+lb.querySelector('.lbx').addEventListener('click',function(){lb.close()});
+lb.querySelector('.lbp').addEventListener('click',function(){show(k-1)});
+lb.querySelector('.lbf').addEventListener('click',function(){show(k+1)});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+lb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(k-1);if(e.key==='ArrowRight')show(k+1)});
+lb.addEventListener('close',function(){if(opener)opener.focus()});
+})();
+</script>
 
 <section class="svc" id="uslugi"><div class="w">
 <div class="hl"><h2>Помогу сохранить здоровье и красоту улыбки</h2></div>
