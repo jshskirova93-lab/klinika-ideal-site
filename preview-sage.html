@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Тестовый предпросмотр цветовой темы, не основной сайт -->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сайт Идеал, Тишина</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Макет «Идеал»: бирюзовый и золото на тёплом белом, серифная гарнитура, тонкие золотые линии */
+:root{--teal:#283a48;--teal-d:#213140;--cream:#f7f3f2;--gold:#bfa595;--gold-d:#7d6354;--ink:#213140;--mut:#5a6572;
+--disp:'Cormorant Garamond',Georgia,serif;--body:'PT Serif',Georgia,serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:inherit}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:var(--disp);font-weight:600;margin:0;text-wrap:balance}
+.w{max-width:1160px;margin:0 auto;padding:0 24px}
+svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.gi{color:var(--gold)}
+/* шапка */
+header .w{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.logo{text-decoration:none;display:flex;align-items:center;gap:14px;line-height:1;color:var(--teal-d)}
+.logo img{width:62px;height:62px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);display:block}
+.logo span{display:flex;flex-direction:column}
+.lg{padding:44px 24px 12px;text-align:center}
+.lg img{width:min(260px,70%);aspect-ratio:1/1;object-fit:cover;border-radius:24px;display:block;margin:0 auto}
+.logo b{font-family:var(--disp);font-size:46px;font-weight:600;font-style:italic}
+.logo small{font-size:10.5px;letter-spacing:.32em;margin-top:2px}
+nav{display:flex;flex-wrap:wrap;gap:8px 36px;font-size:18px}
+nav a{text-decoration:none}nav a:hover{color:var(--teal)}
+.tel{display:flex;align-items:center;gap:10px;font-size:20px;text-decoration:none;border-left:1px solid var(--gold);padding-left:24px}
+.tel svg{font-size:20px;color:var(--gold-d)}
+/* первый экран */
+.hero{background:var(--teal);color:#fff;position:relative}
+.hero .w{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;padding-top:0;padding-bottom:0;max-width:1240px;padding-left:0;padding-right:0}
+.hero-t{padding:64px 24px 64px 48px;display:flex;flex-direction:column;justify-content:center;gap:22px}
+.hero h1{font-size:clamp(46px,6vw,76px);line-height:1.04;font-weight:500}
+.rule{width:76px;height:2px;background:var(--gold)}
+.hero p{margin:0;font-style:italic;font-size:21px;max-width:380px;color:#e9edf3}
+.btn{display:inline-block;background:var(--cream);color:var(--teal-d);padding:16px 38px;font-size:19px;text-decoration:none;align-self:flex-start;transition:background .2s,color .2s}
+.btn:hover{background:var(--gold-d);color:#fff}
+.btn.o{background:transparent;border:1px solid var(--gold-d);color:var(--teal-d);padding:12px 24px;font-size:17px}
+.btn.o:hover{background:var(--teal-d);color:#fff;border-color:var(--teal-d)}
+.hero-p{background:var(--gold);clip-path:polygon(16% 0,100% 0,100% 100%,0 100%);min-height:460px}
+.hero-p img{display:block;width:100%;height:100%;min-height:460px;object-fit:cover;object-position:30% 25%;clip-path:polygon(calc(16% + 3px) 0,100% 0,100% 100%,3px 100%);background:#cdd7e1}
+/* плюсы */
+.perks .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 24px;padding-top:22px;padding-bottom:22px}
+.perk{display:flex;align-items:center;gap:14px;font-size:19px;flex:1 1 240px}
+.perk svg{font-size:38px;color:var(--gold)}
+.perk+.perk{border-left:1px solid var(--gold);padding-left:24px}
+/* врач */
+.doc .w{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:40px;padding-bottom:56px}
+.doc img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 35%;display:block;background:#cdd7e1}
+.doc h2{font-size:clamp(36px,4.4vw,54px);line-height:1.05;color:var(--teal-d);font-weight:500}
+.doc p{margin:18px 0 22px;font-size:19px}
+.lnk{color:var(--teal-d);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:3px;font-size:18px}
+.lnk:hover{color:var(--teal)}
+/* заголовки с линией */
+.hl{display:flex;align-items:center;gap:28px}
+.hl h2{font-size:clamp(34px,4.4vw,52px);font-weight:500;line-height:1.05}
+.hl::after{content:"";flex:1;height:1px;background:var(--gold);min-width:40px}
+/* услуги */
+.svc{background:var(--teal);color:#fff;padding:36px 0 40px}
+.svc .grid{display:grid;grid-template-columns:1fr 1fr;margin-top:24px;border-top:1px solid rgba(191,165,149,.7)}
+.s{display:flex;align-items:center;gap:22px;padding:24px 20px 24px 8px}
+.s:nth-child(odd){border-right:1px solid rgba(191,165,149,.7)}
+.s:nth-child(n+3){border-top:1px solid rgba(191,165,149,.7)}
+.s:nth-child(even){padding-left:32px}
+.s svg{font-size:56px;color:var(--gold);padding-right:22px;border-right:1px solid var(--gold);box-sizing:content-box;height:60px}
+.s h3{font-size:32px;font-weight:500;line-height:1.1}
+.s p{margin:4px 0 0;font-size:17px;color:#e4e9f0}
+/* шаги */
+.steps{padding:44px 0 36px}
+.st{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px}
+.st div{display:flex;align-items:center;gap:20px;font-size:21px;line-height:1.3}
+.st i{font-family:var(--disp);font-style:italic;font-size:76px;line-height:1;color:var(--gold);padding-right:20px;border-right:1px solid var(--gold)}
+.note{text-align:center;font-style:italic;color:var(--mut);margin:22px 0 0;display:flex;align-items:center;gap:20px}
+.note::before,.note::after{content:"";flex:1;height:1px;background:var(--gold)}
+/* цены */
+.pr{background:var(--teal);color:#fff;padding:36px 0 40px}
+.pr .sub{font-style:italic;font-size:19px;margin:8px 0 18px;color:#e4e9f0}
+.row{display:flex;align-items:center;gap:20px;padding:13px 0;border-top:1px solid rgba(191,165,149,.7);font-size:21px;text-decoration:none}
+.row:last-child{border-bottom:1px solid rgba(191,165,149,.7)}
+.row svg{font-size:30px;color:var(--gold)}
+.row em{margin-left:auto;font-size:18px}
+.pnote{font-style:italic;font-size:16px;color:#e4e9f0;margin:16px 0 0}
+.pbtn{margin-top:20px}
+/* отзывы, вопросы */
+.rv{padding:36px 0 8px}
+.rv .w{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px}
+.q{font-family:var(--disp);font-size:100px;line-height:.7;color:var(--gold);padding-right:20px;border-right:1px solid var(--gold);padding-top:26px;height:70px}
+.rv h2{font-size:clamp(32px,4vw,46px);font-weight:500}
+.rv p{margin:4px 0 0;font-style:italic;font-size:19px}
+.faq{padding:28px 0 12px}
+details{border-bottom:1px solid var(--gold);padding:14px 4px;font-size:20px}
+details[open]{border:1px solid var(--gold);padding:14px 22px;margin:6px 0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:30px;line-height:1;color:var(--mut)}
+details[open] summary::after{content:"–"}
+details p{margin:8px 0 2px;font-style:italic;font-size:18px;color:var(--mut)}
+/* документы */
+.docs{padding:28px 0 40px}
+.dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 28px;margin-top:20px}
+.dg details{font-size:19px}
+.dg details a{display:block;font-size:16px;color:var(--teal-d);margin-top:10px;line-height:1.4}
+/* контакты */
+.ct{background:var(--teal);color:#fff;padding:36px 0 40px}
+.ct .w{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.ct h2{font-size:clamp(34px,4.4vw,52px);font-weight:500}
+.ln{display:flex;align-items:center;gap:16px;margin-top:18px;font-size:24px}
+.ln svg{font-size:30px}
+.ln.big{font-size:clamp(34px,4.6vw,52px);font-family:var(--disp);font-weight:500;color:#fff;text-decoration:none}
+.ln.big svg{font-size:36px;color:#fff}
+.ct .btn{margin-top:26px}
+.fr{position:relative;padding:14px}
+.fr::before,.fr::after{content:"";position:absolute;width:42px;height:42px;border:2px solid var(--gold)}
+.fr::before{top:0;right:0;border-left:0;border-bottom:0}
+.fr::after{bottom:0;left:0;border-right:0;border-top:0}
+.fr img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:100% 30%;background:#cdd7e1}
+/* подвал */
+footer .w{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 28px;padding-top:22px;padding-bottom:12px}
+footer b{font-family:var(--disp);font-size:32px;font-weight:600;color:var(--teal-d)}
+footer .m{display:flex;align-items:center;gap:10px}
+.dis{border-top:1px solid var(--gold);text-align:center;font-style:italic;color:var(--mut);padding:12px 24px 20px;font-size:15px}
+/* сертификаты */
+.cert{padding:44px 0 52px;background:var(--cream)}
+.cert-lead{margin:18px 0 28px;font-size:19px;max-width:760px}
+.cgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:26px 22px}
+.sc{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:6px;width:100%;height:100%}
+.sc:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.sci{display:block;position:relative;width:100%;aspect-ratio:3/4;background:#fff;border:1px solid var(--gold);box-sizing:border-box;transition:box-shadow .2s,transform .2s}
+.sc:hover .sci{box-shadow:0 8px 22px rgba(33,49,64,.18);transform:translateY(-3px)}
+.sci img{position:absolute;left:10px;top:10px;width:calc(100% - 20px);height:calc(100% - 20px);object-fit:contain;display:block}
+.scy{font-family:var(--disp);font-size:30px;line-height:1;color:var(--gold-d);margin-top:8px}
+.sct{font-size:17px;line-height:1.3;color:var(--ink)}
+.scs{font-size:15px;line-height:1.35;color:var(--mut)}
+#lb{border:0;padding:0;background:transparent;max-width:min(96vw,1100px);max-height:96vh;width:100%;color:#fff;overflow:visible}
+#lb::backdrop{background:rgba(14,22,30,.88)}
+#lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px}
+#lb img{max-width:100%;max-height:82vh;object-fit:contain;background:#fff;display:block}
+#lb figcaption{font-size:17px;line-height:1.4;text-align:center;max-width:820px;padding:8px 56px;background:rgba(14,22,30,.85)}
+.lbx,.lbn{all:unset;box-sizing:border-box;cursor:pointer;position:absolute;width:48px;height:48px;border-radius:50%;background:var(--cream);color:var(--teal-d);font-size:34px;line-height:46px;text-align:center}
+.lbx{top:-6px;right:-6px;z-index:2}
+.lbn{top:42%}.lbp{left:-6px}.lbf{right:-6px}
+.lbx:hover,.lbn:hover{background:var(--gold-d);color:#fff}
+.lbx:focus-visible,.lbn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media (max-width:1000px){.cgrid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.cgrid{grid-template-columns:repeat(2,1fr);gap:20px 14px}.sct{font-size:16px}.scs{font-size:14px}#lb figcaption{padding:10px 12px 62px}.lbn{top:auto;bottom:-4px}.lbp{left:8px}.lbf{right:8px}}
+@media (max-width:900px){
+.hero .w,.doc .w,.ct .w{grid-template-columns:1fr}
+.hero-t{padding:44px 24px}.hero-p,.hero-p img{clip-path:none;min-height:320px}
+.perk+.perk{border-left:0;padding-left:0}
+.svc .grid{grid-template-columns:1fr}.s:nth-child(odd){border-right:0}.s:nth-child(n+2){border-top:1px solid rgba(191,165,149,.7)}.s:nth-child(even){padding-left:8px}
+.st{grid-template-columns:1fr}
+.tel{border-left:0;padding-left:0}.row em{font-size:15px}.row{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* запись на приём */
+.zp{padding:72px 0 80px}
+.zp .w{max-width:760px}
+.zp h2{font-size:clamp(34px,4.4vw,52px);font-weight:500;color:var(--teal-d)}
+.zp .lead{color:var(--mut);margin:14px 0 30px}
+.zp form{display:grid;gap:18px}
+.zp .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.zp label{display:flex;flex-direction:column;gap:6px;font-size:16px;color:var(--teal-d)}
+.zp input,.zp select,.zp textarea{font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--gold);border-radius:10px;padding:13px 14px;width:100%}
+.zp textarea{min-height:110px;resize:vertical}
+.zp input:focus-visible,.zp select:focus-visible,.zp textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.zp .agree{flex-direction:row;align-items:flex-start;gap:12px;font-size:15px;color:var(--mut)}
+.zp .agree input{width:22px;height:22px;margin-top:3px;flex:none;accent-color:var(--teal)}
+.zp .agree a{color:var(--teal-d)}
+.zp .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.zp button.btn{border:0;cursor:pointer;font:inherit;font-size:19px;justify-self:start;background:var(--teal);color:#fff}
+.zp button.btn:hover{background:var(--gold-d)}
+.zp button.btn[disabled]{opacity:.6;cursor:wait}
+.zp .zst{min-height:1.6em;font-size:17px}
+.zp .zst.ok{color:#1f5e3a}
+.zp .zst.err{color:#9b2c2c}
+@media(max-width:640px){.zp .two{grid-template-columns:1fr}}
+
+/* ===== Оформление «шалфей и золото» (по макету, структура сайта не менялась) ===== */
+:root{--teal:#1f4a3a;--teal-d:#1b3d31;--cream:#f6f1e8;--gold:#c4a15f;--gold-d:#8f6f33;--ink:#1b3d31;--mut:#5b6b62;
+--sage:#d3e0d3;--sage-l:#e8efe6;--goldg:linear-gradient(135deg,#d6b878,#a98443);
+--body:'Manrope','PT Sans',Arial,sans-serif}
+body{font-size:16.5px;line-height:1.6;background:var(--cream)}
+h1,h2,h3{color:var(--teal-d)}
+.btn,.zp button.btn{background:var(--goldg);color:#fff;border-radius:999px;padding:15px 34px;font-weight:600;font-size:17px;box-shadow:0 6px 16px rgba(143,111,51,.28);border:0}
+.btn:hover,.zp button.btn:hover{background:linear-gradient(135deg,#b89655,#8f6f33);color:#fff}
+.btn.o{background:transparent;color:var(--teal-d);border:1.5px solid var(--gold);box-shadow:none;padding:12px 26px}
+.btn.o:hover{background:var(--gold-d);color:#fff;border-color:var(--gold-d)}
+.lnk{border-bottom-color:var(--gold)}
+/* шапка */
+header{background:linear-gradient(180deg,#c9d9cc,#dfe9dd)}
+.logo b{font-size:40px;color:var(--teal-d)}
+.logo img{border-color:var(--gold)}
+nav a{font-weight:500;font-size:16px}
+nav a:hover{color:var(--gold-d)}
+.tel{background:var(--goldg);color:#fff;border:0;border-radius:999px;padding:11px 22px;font-size:17px;font-weight:600;box-shadow:0 6px 16px rgba(143,111,51,.28)}
+.tel svg{color:#fff}
+/* первый экран */
+.hero{background:linear-gradient(100deg,#f6f1e8 0%,#e8efe6 55%,#cddccf 100%);color:var(--teal-d)}
+.hero h1{color:var(--teal-d);font-weight:500}
+.hero p{color:var(--gold-d);font-style:normal;font-size:20px;font-weight:500}
+.rule{background:var(--gold)}
+.hero-p{background:transparent;clip-path:none}
+.hero-p img{clip-path:none;background:transparent;-webkit-mask-image:linear-gradient(to right,transparent,#000 28%);mask-image:linear-gradient(to right,transparent,#000 28%)}
+/* плюсы */
+.perk svg{color:var(--teal)}
+.perk+.perk{border-left-color:var(--sage)}
+/* врач */
+.doc .w{background:linear-gradient(120deg,#e8efe6,#d3e0d3);border-radius:24px;margin-top:28px;margin-bottom:12px;max-width:1112px;padding:28px 36px;gap:40px}
+.doc img{border-radius:18px}
+.doc h2{font-weight:500}
+/* заголовки */
+.hl::after{background:linear-gradient(90deg,var(--gold),transparent)}
+/* услуги */
+.svc{background:var(--sage-l);color:var(--teal-d)}
+.svc .grid{gap:18px;border-top:0;grid-template-columns:repeat(2,1fr)}
+.s,.s:nth-child(even){background:#fffaf0;border:1px solid #e6dcc4;border-radius:20px;padding:22px 24px;box-shadow:0 8px 22px rgba(31,74,58,.08)}
+.s:nth-child(odd){border-right:1px solid #e6dcc4}
+.s:nth-child(n+3){border-top:1px solid #e6dcc4}
+.s svg{color:var(--teal);border-right:0;padding-right:0;font-size:52px}
+.s h3{font-size:28px}
+.s p{color:var(--mut)}
+/* шаги */
+.st div{background:#fffaf0;border:1px solid #e6dcc4;border-radius:18px;padding:16px 20px;box-shadow:0 6px 16px rgba(31,74,58,.06)}
+.st i{font-style:normal;font-size:30px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#c9d9cc,#9fbba5);color:var(--teal-d);display:flex;align-items:center;justify-content:center;border:0;padding:0;flex:none}
+/* цены */
+.pr{background:linear-gradient(180deg,#cfddd0,#dbe6dc);color:var(--teal-d)}
+.pr .sub,.pnote{color:var(--mut)}
+.row{background:#fffaf0;border:1px solid #e6dcc4;border-radius:14px;margin-top:8px;padding:12px 18px;font-size:18px;color:var(--teal-d)}
+.row:last-child{border-bottom:1px solid #e6dcc4}
+.row svg{color:var(--teal)}
+.row em{font-style:normal;font-weight:700;background:var(--goldg);color:#fff;border-radius:999px;padding:4px 16px;font-size:17px}
+/* отзывы, вопросы */
+.q{color:var(--gold);border-right-color:var(--gold)}
+details{background:#fffaf0;border:1px solid #e6dcc4;border-radius:14px;padding:14px 20px;margin:8px 0}
+details[open]{border:1px solid var(--gold);padding:14px 20px;margin:8px 0}
+summary::after{color:var(--gold-d)}
+details p{font-style:normal}
+.dg details a{color:var(--teal)}
+/* контакты */
+.ct{background:linear-gradient(120deg,#cfddd0,#e2ebe0);color:var(--teal-d)}
+.ln.big,.ln.big svg{color:var(--teal-d)}
+.ln svg{color:var(--teal)}
+.fr img{border-radius:18px}
+/* запись */
+.zp .w{background:#fffaf0;border:1px solid #e6dcc4;border-radius:24px;box-shadow:0 10px 28px rgba(31,74,58,.08);padding:36px 40px}
+.zp input,.zp select,.zp textarea{border-color:#d9cba6;border-radius:12px}
+.zp .agree input{accent-color:var(--teal)}
+/* сертификаты */
+.sci{border-radius:12px;border-color:#e0d2ad}
+.scy{color:var(--gold-d)}
+/* подвал */
+.lg{background:var(--cream)}
+footer{background:var(--teal);color:#e9efe9}
+footer b{color:#fff}
+footer .m span{color:#fff!important}
+.dis{background:var(--teal);color:#c9d6cc;border-top:1px solid rgba(196,161,95,.5)}
+@media (max-width:900px){
+.svc .grid{grid-template-columns:1fr}
+.s,.s:nth-child(even){padding:18px}
+.doc .w{padding:22px 20px;margin-left:12px;margin-right:12px}
+.hero-p img{-webkit-mask-image:none;mask-image:none}
+.tel{padding:10px 18px}
+.zp .w{padding:26px 20px}
+}
+
+/* ===== Уточнение цветов по макету (взято с пикселей макета) ===== */
+:root{--teal:#3b5d4e;--teal-d:#1d4636;--cream:#f6f0e9;--sage:#cbd8ca;--sage-l:#e3e9de}
+header{background:linear-gradient(180deg,#5f7f6e,#7a9786)}
+.logo,.logo b,.logo small,nav a{color:#fff}
+nav a:hover{color:#f1dfae}
+.logo img{border-color:#e6cf9a}
+.hero{background:linear-gradient(100deg,#ebe8dd 0%,#e4e6d8 55%,#cfd9cb 100%)}
+.pr{background:linear-gradient(180deg,#bdccbd,#cbd8ca)}
+.row{background:#f8f3eb;border-color:#dcd5c3}
+.s,.s:nth-child(even),.st div,details{background:#f8f3eb}
+.ct{background:linear-gradient(120deg,#c8d6c7,#dbe2d6)}
+footer,.dis{background:#3f6050}
+.doc .w{background:linear-gradient(120deg,#eee9e1,#d3dcd0)}
+.btn,.zp button.btn,.tel{background:linear-gradient(135deg,#e2c995,#b8975a)}
+
+.btn,.zp button.btn,.tel,.tel svg,.btn:hover,.zp button.btn:hover{color:#1d3a2e}
+.row em{color:#1d3a2e;background:linear-gradient(135deg,#e2c995,#b8975a)}
+
+/* ===== Цены одной таблицей и подвал, как на макете ===== */
+.pr{background:linear-gradient(180deg,#bfcebf,#c8d5c7)}
+.pr .hl{justify-content:center}
+.pr .hl::before{content:"";flex:1;height:1px;background:linear-gradient(270deg,var(--gold),transparent);min-width:40px;max-width:200px}
+.pr .hl::after{max-width:200px;flex:1}
+.pr .sub{text-align:center;font-style:normal;font-weight:500;color:var(--teal-d)}
+.pr .w{max-width:900px}
+.row{background:#f7f3eb;border:0;border-bottom:1px solid #e4e0d4;border-radius:0;margin:0;padding:13px 28px;font-size:17px;box-shadow:none}
+.pr .sub+.row{border-radius:16px 16px 0 0}
+.row:last-of-type{border-bottom:0;border-radius:0 0 16px 16px}
+.row svg{display:none}
+.row em{background:none;color:var(--teal-d);padding:0 0 0 24px;border-left:1px solid #e4e0d4;min-width:130px;text-align:right;font-weight:600;font-size:17px;margin-left:auto}
+.pnote{text-align:center;font-style:normal;color:var(--teal-d);margin-top:16px}
+.pbtn{display:table;margin:20px auto 0}
+.lg{background:#406252;padding:36px 24px 8px}
+footer,.dis{background:linear-gradient(180deg,#406252,#335749)}
+footer{color:#fff}
+.lg+footer .w{padding-top:18px}
+.dis{background:transparent;color:#d3dfd6;border-top:1px solid rgba(214,184,120,.5)}
+.row em{border-radius:0}
+
+/* ===== Цветочный орнамент в фоне (мягкие тени листьев, как на макете) ===== */
+:root{--leafL:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 360 380%22%3E%3Cdefs%3E%3Cfilter id=%22b%22 x=%22-20%25%22 y=%22-20%25%22 width=%22140%25%22 height=%22140%25%22%3E%3CfeGaussianBlur stdDeviation=%225%22/%3E%3C/filter%3E%3C/defs%3E%3Cg filter=%22url(%23b)%22 fill=%22%23ffffff%22 fill-opacity=%220.42%22%3E%3Cpath d=%22M40 370 C90 280 150 170 215 40%22 stroke=%22%23ffffff%22 stroke-opacity=%220.42%22 stroke-width=%225%22 fill=%22none%22/%3E%3Cellipse cx=%22120.0%22 cy=%22330%22 rx=%2260.0%22 ry=%2220.0%22 transform=%22rotate(-55 60 330)%22/%3E%3Cellipse cx=%22150.0%22 cy=%22270%22 rx=%2255.0%22 ry=%2218.333333333333332%22 transform=%22rotate(-35 95 270)%22/%3E%3Cellipse cx=%22170.0%22 cy=%22215%22 rx=%2250.0%22 ry=%2216.666666666666668%22 transform=%22rotate(-60 120 215)%22/%3E%3Cellipse cx=%22195.0%22 cy=%22160%22 rx=%2245.0%22 ry=%2215.0%22 transform=%22rotate(-30 150 160)%22/%3E%3Cellipse cx=%22210.0%22 cy=%22105%22 rx=%2240.0%22 ry=%2213.333333333333334%22 transform=%22rotate(-65 170 105)%22/%3E%3Cellipse cx=%22220.0%22 cy=%2255%22 rx=%2230.0%22 ry=%2210.0%22 transform=%22rotate(-40 190 55)%22/%3E%3Cellipse cx=%22147.5%22 cy=%22300%22 rx=%2252.5%22 ry=%2217.5%22 transform=%22rotate(10 95 300)%22/%3E%3Cellipse cx=%22177.5%22 cy=%22240%22 rx=%2247.5%22 ry=%2215.833333333333334%22 transform=%22rotate(25 130 240)%22/%3E%3Cellipse cx=%22202.5%22 cy=%22185%22 rx=%2242.5%22 ry=%2214.166666666666666%22 transform=%22rotate(5 160 185)%22/%3E%3Cellipse cx=%22220.0%22 cy=%22130%22 rx=%2235.0%22 ry=%2211.666666666666666%22 transform=%22rotate(20 185 130)%22/%3E%3Cellipse cx=%22232.5%22 cy=%2280%22 rx=%2227.5%22 ry=%229.166666666666666%22 transform=%22rotate(15 205 80)%22/%3E%3C/g%3E%3C/svg%3E");--leafD:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 360 380%22%3E%3Cdefs%3E%3Cfilter id=%22b%22 x=%22-20%25%22 y=%22-20%25%22 width=%22140%25%22 height=%22140%25%22%3E%3CfeGaussianBlur stdDeviation=%225%22/%3E%3C/filter%3E%3C/defs%3E%3Cg filter=%22url(%23b)%22 fill=%22%232f5a46%22 fill-opacity=%220.13%22%3E%3Cpath d=%22M40 370 C90 280 150 170 215 40%22 stroke=%22%232f5a46%22 stroke-opacity=%220.13%22 stroke-width=%225%22 fill=%22none%22/%3E%3Cellipse cx=%22120.0%22 cy=%22330%22 rx=%2260.0%22 ry=%2220.0%22 transform=%22rotate(-55 60 330)%22/%3E%3Cellipse cx=%22150.0%22 cy=%22270%22 rx=%2255.0%22 ry=%2218.333333333333332%22 transform=%22rotate(-35 95 270)%22/%3E%3Cellipse cx=%22170.0%22 cy=%22215%22 rx=%2250.0%22 ry=%2216.666666666666668%22 transform=%22rotate(-60 120 215)%22/%3E%3Cellipse cx=%22195.0%22 cy=%22160%22 rx=%2245.0%22 ry=%2215.0%22 transform=%22rotate(-30 150 160)%22/%3E%3Cellipse cx=%22210.0%22 cy=%22105%22 rx=%2240.0%22 ry=%2213.333333333333334%22 transform=%22rotate(-65 170 105)%22/%3E%3Cellipse cx=%22220.0%22 cy=%2255%22 rx=%2230.0%22 ry=%2210.0%22 transform=%22rotate(-40 190 55)%22/%3E%3Cellipse cx=%22147.5%22 cy=%22300%22 rx=%2252.5%22 ry=%2217.5%22 transform=%22rotate(10 95 300)%22/%3E%3Cellipse cx=%22177.5%22 cy=%22240%22 rx=%2247.5%22 ry=%2215.833333333333334%22 transform=%22rotate(25 130 240)%22/%3E%3Cellipse cx=%22202.5%22 cy=%22185%22 rx=%2242.5%22 ry=%2214.166666666666666%22 transform=%22rotate(5 160 185)%22/%3E%3Cellipse cx=%22220.0%22 cy=%22130%22 rx=%2235.0%22 ry=%2211.666666666666666%22 transform=%22rotate(20 185 130)%22/%3E%3Cellipse cx=%22232.5%22 cy=%2280%22 rx=%2227.5%22 ry=%229.166666666666666%22 transform=%22rotate(15 205 80)%22/%3E%3C/g%3E%3C/svg%3E")}
+header,.hero,.pr,.ct,.lg,footer{position:relative;overflow:hidden}
+header>.w,.hero>.w,.pr>.w,.ct>.w,.lg>*,footer>*{position:relative;z-index:1}
+header::before,.hero::before,.hero::after,.pr::before,.pr::after,.ct::before,.ct::after,.lg::before,footer::before{content:"";position:absolute;pointer-events:none;background-repeat:no-repeat;background-size:contain;z-index:0}
+header::before{background-image:var(--leafL);width:240px;height:240px;left:-40px;top:-80px;transform:rotate(20deg);opacity:.8}
+.hero::before{background-image:var(--leafD);width:300px;height:320px;left:-70px;bottom:-40px;transform:scaleX(-1) rotate(-10deg)}
+.hero::after{background-image:var(--leafL);width:300px;height:320px;right:-60px;top:-60px;transform:rotate(200deg);opacity:.8}
+.pr::before{background-image:var(--leafL);width:340px;height:360px;right:-70px;top:-40px;transform:rotate(190deg)}
+.pr::after{background-image:var(--leafL);width:300px;height:320px;left:-80px;bottom:-60px;transform:rotate(-20deg)}
+.ct::before{background-image:var(--leafL);width:340px;height:360px;left:38%;top:-60px;transform:rotate(150deg);opacity:.9}
+.ct::after{background-image:var(--leafL);width:260px;height:280px;right:-40px;bottom:-60px;transform:rotate(-30deg)}
+.lg::before,footer::before{background-image:var(--leafL);width:300px;height:320px;right:-40px;top:-40px;transform:rotate(200deg);opacity:.35}
+.lg::before{left:-60px;right:auto;transform:rotate(-20deg)}
+
+/* ===== Экспериментальная тема «Шалфей × жемчуг».
+   Только визуальные свойства; HTML, фотографии, размеры и поведение не меняются. ===== */
+:root {
+  --teal:#527869;
+  --teal-d:#294d3f;
+  --cream:#f6f3ea;
+  --gold:#d9c9a7;
+  --gold-d:#876e43;
+  --ink:#263d34;
+  --mut:#53675d;
+  --sage:#b7cec3;
+  --sage-l:#edf2eb;
+  --goldg:linear-gradient(180deg,#f9efd8 0%,#e8d6b0 48%,#d0b681 100%);
+}
+body{
+  color:var(--ink);
+  background:linear-gradient(120deg,#fbf9f3 0%,#f6f3ea 52%,#eff3ed 100%);
+}
+header{
+  background:
+    radial-gradient(ellipse at 83% 5%,rgba(225,239,219,.27),transparent 60%),
+    linear-gradient(118deg,#315b4b 0%,#466f5e 50%,#769687 100%);
+}
+header .logo,header .logo b,header .logo small,header nav a{color:#fffdf6}
+header nav a:hover{color:#fff0c7}
+header .tel{
+  color:var(--ink);
+  background:var(--goldg);
+  border:1px solid #cbb786;
+  box-shadow:inset 0 1px rgba(255,255,255,.75),0 5px 14px rgba(34,58,47,.13);
+}
+header .tel svg{color:var(--ink)}
+.hero{
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 5% 10%,rgba(255,255,255,.96) 0%,transparent 51%),
+    radial-gradient(ellipse at 86% 86%,rgba(153,183,164,.33),transparent 55%),
+    linear-gradient(117deg,#f6f3ea 0%,#fcfbf6 45%,#dce8df 100%);
+}
+.hero h1{color:#294d3f;text-shadow:none}
+.hero p{color:#75664e}
+.hero .rule{background:linear-gradient(90deg,#b69860,#e5d4b0)}
+.btn,.zp button.btn,.tel{
+  background:var(--goldg);
+  color:#263d34;
+  border:1px solid #cbb786;
+  box-shadow:inset 0 1px rgba(255,255,255,.75),0 5px 14px rgba(76,67,48,.14);
+}
+.btn:hover,.zp button.btn:hover,.tel:hover{
+  background:linear-gradient(180deg,#f8e6c2,#d8bd8c);
+  color:#263d34;
+}
+.btn.o{background:rgba(255,255,255,.35);color:var(--teal-d);border-color:#bbaa84;box-shadow:none}
+.btn.o:hover{background:#e7ddc7;color:var(--teal-d)}
+.perks{background:linear-gradient(105deg,#f9f7f0,#f0f4ee)}
+.perk svg{color:#90794c}
+.perk+.perk{border-left-color:#dddbce}
+.doc .w{
+  background:
+    radial-gradient(ellipse at 13% 0%,rgba(255,255,255,.8),transparent 63%),
+    linear-gradient(120deg,#f6f3ea,#e3ede4);
+  box-shadow:0 10px 28px rgba(41,77,63,.07);
+}
+.doc h2,.hl h2,.zp h2{color:var(--teal-d)}
+.hl::after{background:linear-gradient(90deg,#d0b681,transparent)}
+.cert{background:linear-gradient(125deg,#fbf9f3,#f4f2e9)}
+.sci{background:#fffdfa;border-color:#ddd0b7;box-shadow:0 3px 12px rgba(47,77,61,.07)}
+.svc{
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 88% 0%,rgba(197,218,201,.35),transparent 62%),
+    linear-gradient(125deg,#f9f7f0,#edf2eb);
+}
+.s,.s:nth-child(even){
+  color:var(--ink);
+  background:linear-gradient(140deg,#fffefa,#f6f3ea);
+  border-color:#e7dfce;
+  box-shadow:inset 0 1px rgba(255,255,255,.8),0 7px 21px rgba(38,72,55,.08);
+}
+.s svg{color:#527869}
+.s p{color:#556a5d}
+.steps{background:linear-gradient(125deg,#faf8f2,#f4f4ec)}
+.st div{
+  background:linear-gradient(130deg,#fffefa,#f0f4ed);
+  border-color:#e3e2d5;
+  box-shadow:0 5px 16px rgba(40,70,56,.06);
+}
+.pr{
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 92% 5%,rgba(255,255,255,.67),transparent 49%),
+    radial-gradient(ellipse at 10% 88%,rgba(255,255,255,.48),transparent 52%),
+    linear-gradient(125deg,#bed2c3,#e1e9df 50%,#b8ccbd);
+}
+.pr .sub,.pnote{color:var(--ink)}
+.pr .row{background:#fbfaf5;border-color:#e4e0d4;color:var(--ink)}
+.pr .row em{color:var(--ink)}
+details,.dg details,.zp .w{
+  background:linear-gradient(140deg,#fffefa,#f7f4eb);
+  border-color:#e7dfce;
+  box-shadow:0 5px 18px rgba(42,75,57,.055);
+}
+.ct{
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 20% 10%,rgba(255,255,255,.64),transparent 52%),
+    linear-gradient(115deg,#d3e0d6,#edf1e8 55%,#b7cebf);
+}
+.zp input,.zp select,.zp textarea{background:#fffefa;border-color:#d8d1bc}
+.lg,footer,.dis{
+  background:
+    radial-gradient(ellipse at 90% 0%,rgba(188,216,194,.14),transparent 60%),
+    linear-gradient(125deg,#294e40,#426a58);
+}
+footer,footer b,.lg,footer .m span{color:#fffdf6}
+.dis{color:#e5ece2}
+
+
+/* FINAL SAGE PEARL STUDY: color, background, border and shadow only. */
+:root{--teal:#577b6c;--teal-d:#294c3d;--cream:#f8f5ee;--gold:#cfb783;--gold-d:#866d43;--ink:#263d34;--mut:#52685c;--sage:#bfd3c6;--sage-l:#f0f3ed;--goldg:linear-gradient(165deg,#fff8e9 0%,#f1dfb7 29%,#d9bb80 78%,#c9a76c 100%)}
+body{background:radial-gradient(ellipse at 10% 25%,rgba(230,236,223,.32),transparent 44%),linear-gradient(145deg,#fcfaf5,#f8f5ee 55%,#f3f3ea);color:var(--ink)}
+header{background:radial-gradient(ellipse at 90% 0%,rgba(216,232,207,.28),transparent 63%),linear-gradient(113deg,#315849,#4b735f 49%,#729684);box-shadow:0 6px 18px rgba(28,59,44,.12)}
+header .logo,header .logo b,header .logo small,header nav a{color:#fffdf7}
+header .tel{background:var(--goldg);color:#294c3d;border-color:#cdb888;box-shadow:inset 0 1px rgba(255,255,255,.95),0 8px 18px rgba(79,61,29,.12)}
+header .tel svg{color:#294c3d}
+.hero{background:radial-gradient(ellipse at 4% 8%,rgba(255,255,255,.96),transparent 50%),radial-gradient(ellipse at 90% 88%,rgba(153,190,163,.34),transparent 56%),linear-gradient(113deg,#f9f7ef,#fffdf8 44%,#dfeae0);color:var(--ink)}
+.hero h1{color:#294c3d}.hero p{color:#786b51}
+.rule{background:linear-gradient(90deg,#b89964,#e8dbbe)}
+.btn,.zp button.btn{background:var(--goldg);color:#29402f;border-color:#bca574;box-shadow:inset 0 1px rgba(255,255,255,.94),0 5px 12px rgba(83,67,38,.15),0 12px 22px rgba(83,67,38,.08)}
+.btn:hover,.zp button.btn:hover{background:linear-gradient(165deg,#fff9ea,#e5ca92 65%,#cba66f);color:#29402f}
+.btn.o{background:linear-gradient(120deg,rgba(255,255,255,.85),rgba(250,247,239,.58));color:#294c3d;box-shadow:inset 0 1px rgba(255,255,255,.8)}
+.btn.o:hover{background:#e9ddc3;color:#294c3d}
+.perks{background:radial-gradient(ellipse at 13% 5%,rgba(255,255,255,.86),transparent 52%),linear-gradient(110deg,#fcfaf5,#f1f4ec)}
+.doc .w{background:radial-gradient(ellipse at 10% 5%,rgba(255,255,255,.97),transparent 67%),radial-gradient(ellipse at 94% 88%,rgba(189,211,190,.42),transparent 63%),linear-gradient(124deg,#faf8f2,#ebf0e8);box-shadow:inset 0 1px rgba(255,255,255,.9),0 7px 25px rgba(45,77,59,.08)}
+.doc h2,.hl h2,.zp h2{color:#294c3d}
+.hl::after{background:linear-gradient(90deg,rgba(193,155,88,.88),rgba(231,212,170,.22))}
+.cert{background:radial-gradient(ellipse at 1% 20%,rgba(219,234,222,.27),transparent 45%),linear-gradient(120deg,#fcfaf5,#f7f5ee 70%,#f1f3e9)}
+.sci{background:linear-gradient(140deg,#fffefa,#faf8f1);border-color:#dfd4bc;box-shadow:0 3px 11px rgba(43,70,53,.08)}
+.svc{color:#294c3d;background:radial-gradient(ellipse at 95% 8%,rgba(197,222,201,.48),transparent 56%),linear-gradient(125deg,#faf9f3,#edf3ec 58%,#e1e9e0)}
+.s,.s:nth-child(even){background:radial-gradient(ellipse at 12% 0%,#fffefa,transparent 76%),linear-gradient(140deg,#fffefa,#f5f4ec);color:#294c3d;border-color:#e4dfd0;box-shadow:inset 0 1px rgba(255,255,255,.9),0 9px 24px rgba(44,76,56,.11)}
+.s svg{color:#648779}.s p{color:#53685b}
+.steps{background:linear-gradient(130deg,#fcfaf5,#f1f4ed)}
+.st div{background:radial-gradient(ellipse at 6% 0%,#fffefa,transparent 84%),linear-gradient(130deg,#fffefa,#edf2e9);border-color:#e1e1d3;box-shadow:inset 0 1px #fff,0 6px 18px rgba(41,74,54,.075)}
+.pr{color:#294c3d;background:radial-gradient(ellipse at 86% 7%,rgba(255,255,255,.7),transparent 51%),radial-gradient(ellipse at 10% 90%,rgba(255,255,255,.5),transparent 57%),linear-gradient(125deg,#b9cfbe,#e4ebe0 52%,#b4cbb9)}
+.pr .sub,.pnote{color:#294c3d}
+.pr .row{background:linear-gradient(100deg,#fffdf9,#f7f5ed);color:#294c3d;border-color:#e5e2d7}
+.pr .row em{color:#294c3d}
+.rv{background:linear-gradient(135deg,#fdfaf5,#f5f5ee)}
+.faq,.docs{background:linear-gradient(120deg,#f8f6ef,#f2f4ed)}
+details,.dg details,.zp .w{background:linear-gradient(140deg,#fffefa,#f7f4ec);border-color:#e6dfcf;box-shadow:inset 0 1px rgba(255,255,255,.96),0 5px 17px rgba(42,75,57,.07)}
+.ct{color:#294c3d;background:radial-gradient(ellipse at 20% 10%,rgba(255,255,255,.72),transparent 55%),linear-gradient(116deg,#cee0d2,#eff2ea 55%,#b9d0c0)}
+.zp input,.zp select,.zp textarea{background:#fffefa;border-color:#d8d1bc}
+.lg,footer,.dis{background:radial-gradient(ellipse at 88% 0%,rgba(196,225,198,.17),transparent 60%),linear-gradient(125deg,#294e40,#426a58)}
+footer,footer b,.lg,footer .m span{color:#fffdf6}.dis{color:#e5ece2}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="tooth" viewBox="0 0 24 24"><path d="M12 5c-2-1.8-6.5-1.4-7 2.6-.3 3 1.4 4.4 1.8 7 .4 2.8.7 6.4 2.4 6.4 1.4 0 1-3.8 2.8-3.8s1.4 3.8 2.8 3.8c1.7 0 2-3.6 2.4-6.4.4-2.6 2.1-4 1.8-7C18.500 3.600 14 3.200 12 5z"/></symbol>
+<symbol id="implant" viewBox="0 0 24 24"><path d="M6 3h12v5c0 2-2.500 3-6 3s-6-1-6-3z"/><path d="M9 13h6M9.500 15.500h5M10 18h4M11 20.500h2"/></symbol>
+<symbol id="brush" viewBox="0 0 24 24"><path d="M3 21l10-10"/><path d="M12 12l3-3 4 4-3 3zM14 6l1.500-1.500M17 8l1.500-1.500M19 10.500L20.500 9"/></symbol>
+<symbol id="head" viewBox="0 0 24 24"><path d="M9 3C5.500 3 3.500 5.800 3.500 9c0 2 1 3.200 1 5.300 0 1-.5 2-.5 3h4.500V21H15v-5c2 0 3-1 3-3v-1.200l2-.8-2-2.500C18 4.500 14.500 3 9 3z"/><path d="M8 11h2"/></symbol>
+<symbol id="leaf" viewBox="0 0 24 24"><path d="M12 21c-3.500-2-5.500-5.500-5-10 3 1 5 4.500 5 10zM12 21c3.500-2 5.500-5.500 5-10-3 1-5 4.500-5 10zM12 21c-2-3-2-7 0-12 2 5 2 9 0 12z"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.500"/></symbol>
+<symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.500"/><path d="M3 7l9 6.500L21 7"/></symbol>
+<symbol id="img" viewBox="0 0 24 24"><circle cx="16.500" cy="6.500" r="2"/><path d="M2 20l7.500-9 4.500 5 2.500-2.500L22 20z"/></symbol>
+</defs></svg>
+
+<header><div class="w">
+<a class="logo" href="#top" aria-label="Стоматология «Идеал», на главную"><img src="images/mark.jpg" alt=""><span><b>Идеал</b><small>СТОМАТОЛОГИЯ</small></span></a>
+<nav><a href="#vrach">О враче</a><a href="#uslugi">Услуги</a><a href="#ceny">Цены</a><a href="#kontakty">Контакты</a></nav>
+<a class="tel" href="#kontakty"><svg class="i"><use href="#phone"/></svg>+7 (993) 040-45-46</a>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="w">
+<div class="hero-t">
+<h1>Ваша улыбка. Мой личный подход.</h1>
+<div class="rule"></div>
+<p>Алина Хамзина · стоматолог, гнатолог</p>
+<a class="btn" href="#zapis">Записаться на приём</a>
+</div>
+<div class="hero-p"><img src="images/hero.jpg" alt="Хамзина Алина Феликсовна, врач-стоматолог, в кабинете"></div>
+</div></section>
+
+<div class="perks"><div class="w">
+<div class="perk"><svg class="i"><use href="#leaf"/></svg>Один врач на всех этапах</div>
+<div class="perk"><svg class="i"><use href="#tooth"/></svg>Понятный план лечения</div>
+<div class="perk"><svg class="i"><use href="#pin"/></svg>Уфа · Рязанская, 1/1</div>
+</div></div>
+
+<section class="doc" id="vrach"><div class="w">
+<img src="images/consult.jpg" alt="Врач Алина Хамзина показывает пациентке снимок зубов">
+<div>
+<h2>Ваш врач — Алина Феликсовна Хамзина</h2>
+<div class="rule" style="margin-top:18px"></div>
+<p>Врач-стоматолог, гнатолог. Личное внимание к вашей ситуации — от знакомства до завершения лечения.</p>
+<a class="lnk" href="#sertifikaty">Образование и сертификаты →</a>
+<a class="lnk" href="#dokumenty" style="margin-left:22px">Документы клиники →</a>
+</div>
+</div></section>
+
+<section class="cert" id="sertifikaty"><div class="w">
+<div class="hl"><h2>Образование и сертификаты</h2></div>
+<p class="cert-lead">Врач постоянно учится: курсы по реставрации, эндодонтии и эстетической стоматологии. Нажмите на сертификат, чтобы рассмотреть его крупно.</p>
+<ul class="cgrid">
+<li><button type="button" class="sc" data-i="0"><span class="sci"><img src="images/sert/t-01-2026-restavratsiya.jpg" alt="Сертификат 2026: Курс «Реставрация зубов»" loading="lazy"></span><span class="scy">2026</span><span class="sct">Курс «Реставрация зубов»</span><span class="scs">Лекторий 196, Уфа, 15–16 апреля 2026</span></button></li>
+<li><button type="button" class="sc" data-i="1"><span class="sci"><img src="images/sert/t-02-2024-perednyaya-gruppa.jpg" alt="Сертификат 2024: «Реставрация передней группы зубов»" loading="lazy"></span><span class="scy">2024</span><span class="sct">«Реставрация передней группы зубов»</span><span class="scs">Практический мастер-класс, Уфа, 15 ноября 2024</span></button></li>
+<li><button type="button" class="sc" data-i="2"><span class="sci"><img src="images/sert/t-03-2024-vinyry.jpg" alt="Сертификат 2024: «Композитные виниры без препарирования»" loading="lazy"></span><span class="scy">2024</span><span class="sct">«Композитные виниры без препарирования»</span><span class="scs">Практический курс, Уфа, ноябрь 2024</span></button></li>
+<li><button type="button" class="sc" data-i="3"><span class="sci"><img src="images/sert/t-04-2022-starsmile.jpg" alt="Сертификат 2022: «Ортодонтия без брекетов»" loading="lazy"></span><span class="scy">2022</span><span class="sct">«Ортодонтия без брекетов»</span><span class="scs">Star Smile, курс Basic, Уфа, 2022</span></button></li>
+<li><button type="button" class="sc" data-i="4"><span class="sci"><img src="images/sert/t-05-2016-dental-akademiya.jpg" alt="Сертификат 2016: «Функциональная реабилитация зубов после эндодонтического лечения»" loading="lazy"></span><span class="scy">2016</span><span class="sct">«Функциональная реабилитация зубов после эндодонтического лечения»</span><span class="scs">«Дентал Академия», Уфа, 2 марта 2016</span></button></li>
+<li><button type="button" class="sc" data-i="5"><span class="sci"><img src="images/sert/t-06-2016-dental-guru.jpg" alt="Сертификат 2016: «Прямая реставрация передних зубов: эстетика, морфология, функция»" loading="lazy"></span><span class="scy">2016</span><span class="sct">«Прямая реставрация передних зубов: эстетика, морфология, функция»</span><span class="scs">Международный учебный центр Dental Guru, Уфа, 21 мая 2016</span></button></li>
+<li><button type="button" class="sc" data-i="6"><span class="sci"><img src="images/sert/t-07-2014-tokuyama.jpg" alt="Сертификат 2014: «Безупречная эстетическая реставрация»" loading="lazy"></span><span class="scy">2014</span><span class="sct">«Безупречная эстетическая реставрация»</span><span class="scs">Семинар по материалам Tokuyama, 5 декабря 2014</span></button></li>
+<li><button type="button" class="sc" data-i="7"><span class="sci"><img src="images/sert/t-08-2011-ultradent.jpg" alt="Сертификат 2011: «Эстетическая реставрация. Отбеливание зубов»" loading="lazy"></span><span class="scy">2011</span><span class="sct">«Эстетическая реставрация. Отбеливание зубов»</span><span class="scs">Ultradent, 18 ноября 2011</span></button></li>
+<li><button type="button" class="sc" data-i="8"><span class="sci"><img src="images/sert/t-09-2007-3m.jpg" alt="Сертификат 2007: «Тенденции развития современной реставрационной стоматологии»" loading="lazy"></span><span class="scy">2007</span><span class="sct">«Тенденции развития современной реставрационной стоматологии»</span><span class="scs">3M ESPE, Уфа, 3 октября 2007</span></button></li>
+<li><button type="button" class="sc" data-i="9"><span class="sci"><img src="images/sert/t-10-2007-vdw.jpg" alt="Сертификат 2007: Международный симпозиум по эндодонтии" loading="lazy"></span><span class="scy">2007</span><span class="sct">Международный симпозиум по эндодонтии</span><span class="scs">VDW Endodontic Synergy, Москва, сентябрь 2007</span></button></li>
+<li><button type="button" class="sc" data-i="10"><span class="sci"><img src="images/sert/t-11-2005-3m-oshibki.jpg" alt="Сертификат 2005: «Пути преодоления ошибок и осложнений при эстетической реставрации зубов»" loading="lazy"></span><span class="scy">2005</span><span class="sct">«Пути преодоления ошибок и осложнений при эстетической реставрации зубов»</span><span class="scs">3M ESPE, 10 марта 2005</span></button></li>
+<li><button type="button" class="sc" data-i="11"><span class="sci"><img src="images/sert/t-12-2005-3m-master-klass.jpg" alt="Сертификат 2005: «Современные технологии в терапевтической стоматологии»" loading="lazy"></span><span class="scy">2005</span><span class="sct">«Современные технологии в терапевтической стоматологии»</span><span class="scs">Мастер-класс 3M ESPE, 8 июня 2005</span></button></li>
+<li><button type="button" class="sc" data-i="12"><span class="sci"><img src="images/sert/t-13-1993-diplom.jpg" alt="Сертификат 1993: «Современные пломбировочные материалы»" loading="lazy"></span><span class="scy">1993</span><span class="sct">«Современные пломбировочные материалы»</span><span class="scs">Диплом обучающего центра, 4–8 октября 1993</span></button></li>
+</ul>
+</div></section>
+
+<dialog id="lb" aria-label="Сертификат крупно"><button type="button" class="lbx" aria-label="Закрыть">×</button><button type="button" class="lbn lbp" aria-label="Предыдущий сертификат">‹</button><figure><img id="lbi" alt=""><figcaption id="lbc"></figcaption></figure><button type="button" class="lbn lbf" aria-label="Следующий сертификат">›</button></dialog>
+<script>
+(function(){
+var L=[
+["images/sert/01-2026-restavratsiya.jpg","2026 · Курс «Реставрация зубов». Лекторий 196, Уфа, 15–16 апреля 2026"],
+["images/sert/02-2024-perednyaya-gruppa.jpg","2024 · «Реставрация передней группы зубов». Практический мастер-класс, Уфа, 15 ноября 2024"],
+["images/sert/03-2024-vinyry.jpg","2024 · «Композитные виниры без препарирования». Практический курс, Уфа, ноябрь 2024"],
+["images/sert/04-2022-starsmile.jpg","2022 · «Ортодонтия без брекетов». Star Smile, курс Basic, Уфа, 2022"],
+["images/sert/05-2016-dental-akademiya.jpg","2016 · «Функциональная реабилитация зубов после эндодонтического лечения». «Дентал Академия», Уфа, 2 марта 2016"],
+["images/sert/06-2016-dental-guru.jpg","2016 · «Прямая реставрация передних зубов: эстетика, морфология, функция». Международный учебный центр Dental Guru, Уфа, 21 мая 2016"],
+["images/sert/07-2014-tokuyama.jpg","2014 · «Безупречная эстетическая реставрация». Семинар по материалам Tokuyama, 5 декабря 2014"],
+["images/sert/08-2011-ultradent.jpg","2011 · «Эстетическая реставрация. Отбеливание зубов». Ultradent, 18 ноября 2011"],
+["images/sert/09-2007-3m.jpg","2007 · «Тенденции развития современной реставрационной стоматологии». 3M ESPE, Уфа, 3 октября 2007"],
+["images/sert/10-2007-vdw.jpg","2007 · Международный симпозиум по эндодонтии. VDW Endodontic Synergy, Москва, сентябрь 2007"],
+["images/sert/11-2005-3m-oshibki.jpg","2005 · «Пути преодоления ошибок и осложнений при эстетической реставрации зубов». 3M ESPE, 10 марта 2005"],
+["images/sert/12-2005-3m-master-klass.jpg","2005 · «Современные технологии в терапевтической стоматологии». Мастер-класс 3M ESPE, 8 июня 2005"],
+["images/sert/13-1993-diplom.jpg","1993 · «Современные пломбировочные материалы». Диплом обучающего центра, 4–8 октября 1993"]];
+var lb=document.getElementById('lb'),im=document.getElementById('lbi'),cp=document.getElementById('lbc'),k=0,opener=null;
+function show(n){k=(n+L.length)%L.length;im.src=L[k][0];im.alt='Сертификат: '+L[k][1];cp.textContent=L[k][1]}
+document.querySelectorAll('.sc').forEach(function(b){b.addEventListener('click',function(){opener=b;show(+b.dataset.i);lb.showModal()})});
+lb.querySelector('.lbx').addEventListener('click',function(){lb.close()});
+lb.querySelector('.lbp').addEventListener('click',function(){show(k-1)});
+lb.querySelector('.lbf').addEventListener('click',function(){show(k+1)});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+lb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(k-1);if(e.key==='ArrowRight')show(k+1)});
+lb.addEventListener('close',function(){if(opener)opener.focus()});
+})();
+</script>
+
+<section class="svc" id="uslugi"><div class="w">
+<div class="hl"><h2>Помогу сохранить здоровье и красоту улыбки</h2></div>
+<div class="grid">
+<div class="s"><svg class="i"><use href="#tooth"/></svg><div><h3>Лечение зубов</h3><p>Кариес и восстановление зубов</p></div></div>
+<div class="s"><svg class="i"><use href="#implant"/></svg><div><h3>Протезирование</h3><p>Восстановление утраченных зубов</p></div></div>
+<div class="s"><svg class="i"><use href="#brush"/></svg><div><h3>Гигиена и отбеливание</h3><p>Профессиональный уход за улыбкой</p></div></div>
+<div class="s"><svg class="i"><use href="#head"/></svg><div><h3>Гнатология</h3><p>Прикус, мышцы и суставы</p></div></div>
+</div>
+</div></section>
+
+<section class="steps"><div class="w">
+<div class="hl"><h2>Как проходит приём</h2></div>
+<div class="st">
+<div><i>01</i><span>Знакомство<br>и осмотр</span></div>
+<div><i>02</i><span>Обсуждение<br>плана</span></div>
+<div><i>03</i><span>Лечение<br>и рекомендации</span></div>
+</div>
+</div></section>
+
+<section class="pr" id="ceny"><div class="w">
+<div class="hl"><h2>Стоимость без неожиданностей</h2></div>
+<p class="sub">Основные услуги. Обсудим план и стоимость до начала лечения.</p>
+<div class="row"><svg class="i"><use href="#tooth"/></svg>Осмотр врача-стоматолога<em>500&nbsp;₽</em></div>
+<div class="row"><svg class="i"><use href="#tooth"/></svg>Консультация с индивидуальным планом лечения<em>1&nbsp;500&nbsp;₽</em></div>
+<div class="row"><svg class="i"><use href="#tooth"/></svg>Лечение среднего кариеса<em>от&nbsp;4&nbsp;500&nbsp;₽</em></div>
+<div class="row"><svg class="i"><use href="#brush"/></svg>Профессиональная гигиена: ультразвук, Airflow, полировка<em>6&nbsp;500&nbsp;₽</em></div>
+<div class="row"><svg class="i"><use href="#tooth"/></svg>Офисное отбеливание «Amazing White»<em>12&nbsp;000&nbsp;₽</em></div>
+<div class="row"><svg class="i"><use href="#implant"/></svg>Коронка на диоксиде циркония<em>18&nbsp;000&nbsp;₽</em></div>
+<p class="pnote">Цены не являются публичной офертой. Точную стоимость врач называет после осмотра, до начала лечения.</p>
+<a class="btn pbtn" href="prices.html">Весь прайс-лист →</a>
+</div></section>
+
+<section class="rv" id="otzyvy"><div class="w">
+<div class="q" aria-hidden="true">“</div>
+<div style="flex:1 1 320px"><h2>Ваше доверие — главное</h2><p>Отзывы пациентов о враче на ПроДокторов. Рейтинг 4.4, 7 отзывов.</p></div>
+<a class="btn o" href="otzyvy.html">Читать отзывы →</a>
+</div></section>
+
+<section class="faq" id="voprosy"><div class="w">
+<div class="hl"><h2>Перед первым визитом</h2></div>
+<div style="margin-top:18px">
+<details open><summary>Как узнать стоимость лечения?</summary><p>После осмотра врач обсудит с вами варианты и стоимость лечения.</p></details>
+<details><summary>Как записаться на приём?</summary><p>Позвоните по телефону +7 (993) 040-45-46. Принимаем с понедельника по пятницу с 09:00 до 20:00, мы подберём удобное время.</p></details>
+<details><summary>Что взять с собой?</summary><p>Паспорт и, если есть, снимки и выписки о прежнем лечении.</p></details>
+</div>
+</div></section>
+
+<section class="docs" id="dokumenty"><div class="w">
+<div class="hl"><h2>Документы клиники</h2></div>
+<div class="dg">
+<details><summary>Лицензия</summary>
+<a href="d_licenziya1.html">Лицензия, страница 1</a>
+<a href="d_licenziya2.html">Лицензия, страница 2</a>
+<a href="https://disk.yandex.ru/i/e-pTZkZzG1uAQw" target="_blank" rel="noopener">Информация о лицензии</a></details>
+<details><summary>Документы организации</summary>
+<a href="d_svedeniya_o_yuridicheskom_lice.html">Сведения о юридическом лице</a>
+<a href="d_svid_gosreg.html">Свидетельство о государственной регистрации</a>
+<a href="d_svid_nalog.html">Свидетельство о постановке на налоговый учёт</a>
+<a href="https://disk.yandex.ru/i/_a3V8oZ61Sj7Xg" target="_blank" rel="noopener">Сведения о медицинских работниках</a></details>
+<details><summary>Правила и информация для пациентов</summary>
+<a href="d_pravila_zapisi_na_pervichnyj_priyem.html">Правила записи на первичный приём</a>
+<a href="d_chasy_priema.html">Часы приёма</a>
+<a href="d_polozhenie_o_garantiyah_ideal.html">Положение о гарантиях</a>
+<a href="d_dogovor_ob_okazanii_platnyh_medicinskih_uslug.html">Договор об оказании платных медицинских услуг</a>
+<a href="prices.html">Прайс-лист</a>
+<a href="d_politika_konfendicialnosti.html">Политика конфиденциальности</a>
+<a href="https://gkb8-ufa.ru/upload/medialibrary/50d/mi37yze2vgvfhy39yjc0yxktjbd2p10e.pdf" target="_blank" rel="noopener">Сроки ожидания платных услуг</a></details>
+<details><summary>Законы и порядки</summary>
+<a href="https://minzdrav.gov.ru/documents/7025-federalnyy-zakon-323-fz-ot-21-noyabrya-2011-g" target="_blank" rel="noopener">ФЗ № 323 «Об основах охраны здоровья граждан»</a>
+<a href="d_zakon_o_zashchite_prav_potrebitelej.html">Закон «О защите прав потребителей» № 2300-1</a>
+<a href="http://pravo.gov.ru/proxy/ips/?docbody=&amp;nd=102143352" target="_blank" rel="noopener">ФЗ № 326 «Об обязательном медицинском страховании»</a>
+<a href="d_fz_52_sanepid.html">ФЗ № 52 о санитарно-эпидемиологическом благополучии</a>
+<a href="http://publication.pravo.gov.ru/Document/View/0001202305120025" target="_blank" rel="noopener">Правила предоставления платных медуслуг (Постановление № 736)</a>
+<a href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=264241" target="_blank" rel="noopener">Правила ОМС (приказ № 158н)</a>
+<a href="http://publication.pravo.gov.ru/Document/View/0001202010020020" target="_blank" rel="noopener">Порядок помощи при стоматологических заболеваниях (приказ № 786н)</a>
+<a href="docs/standarty_okazaniya_medicinskoj_pomoshchi.pdf">Стандарты оказания медицинской помощи (PDF)</a></details>
+<details><summary>Программы государственных гарантий</summary>
+<a href="http://publication.pravo.gov.ru/document/0001202512300036" target="_blank" rel="noopener">Постановление РФ № 2188 (на 2026 год)</a>
+<a href="docs/pggrb_2025.pdf">Программа госгарантий, 2025 год (PDF)</a>
+<a href="docs/programma_gosgarantii_rb_2026.pdf">Постановление Правительства РБ № 667 (на 2026 год)</a>
+<a href="https://salskcrb.ru/files/pdf/ZHNVLP2026.pdf" target="_blank" rel="noopener">Перечень ЖНВЛП на 2026 год</a></details>
+</div>
+</div></section>
+
+<section class="zp" id="zapis"><div class="w">
+<h2>Запись на приём</h2>
+<p class="lead">Оставьте имя и телефон. Администратор перезвонит в рабочее время (пн–пт, 09:00–20:00) и подберёт удобное время.</p>
+<form id="zapisForm" novalidate>
+<div class="two">
+<label>Ваше имя<input name="name" autocomplete="name" required maxlength="120"></label>
+<label>Телефон<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 ___ ___-__-__" required maxlength="40"></label>
+</div>
+<div class="two">
+<label>Когда удобно принять звонок<input name="time" placeholder="Например, после 18:00" maxlength="120"></label>
+<label>Что вас беспокоит
+<select name="service">
+<option value="">Пока не знаю, нужна консультация</option>
+<option>Лечение зубов</option>
+<option>Протезирование</option>
+<option>Гигиена и отбеливание</option>
+<option>Гнатология (прикус, мышцы, суставы)</option>
+<option>Другое</option>
+</select></label>
+</div>
+<label>Комментарий (по желанию)<textarea name="message" maxlength="1500"></textarea></label>
+<label class="hp" aria-hidden="true">Не заполняйте это поле<input name="website" tabindex="-1" autocomplete="off"></label>
+<label class="agree"><input type="checkbox" name="consent" required><span>Я согласен(на) на обработку персональных данных в соответствии с <a href="d_politika_konfendicialnosti.html" target="_blank" rel="noopener">политикой конфиденциальности</a>.</span></label>
+<button class="btn" type="submit">Записаться на приём</button>
+<div class="zst" id="zapisStatus" role="status" aria-live="polite"></div>
+</form>
+</div></section>
+
+<section class="ct" id="kontakty"><div class="w">
+<div>
+<h2>Начнём с консультации</h2>
+<a class="ln big" href="tel:+79930404546"><svg class="i"><use href="#phone"/></svg>+7 (993) 040-45-46</a>
+<div class="ln"><svg class="i"><use href="#pin"/></svg>Уфа, ул. Рязанская, 1/1</div>
+<div class="ln"><svg class="i"><use href="#clock"/></svg>Пн–пт · 09:00–20:00</div>
+<a class="btn" href="tel:+79930404546">Позвонить в клинику</a>
+</div>
+<div class="fr"><img src="images/lechenie.jpg" alt="Врач Алина Хамзина лечит пациентку"></div>
+</div></section>
+</main>
+
+<div class="lg"><img src="images/logo.jpg" alt="Логотип стоматологии «Идеал»"></div>
+<footer>
+<div class="w">
+<div><b>Идеал</b> · Стоматология</div>
+<div>ООО «Идеал»</div>
+<div class="m gi"><svg class="i" style="font-size:24px"><use href="#mail"/></svg><span style="color:var(--ink)">idealstomat@bk.ru</span></div>
+</div>
+<div class="dis">Имеются противопоказания. Необходима консультация специалиста. © 2026 Стоматология «Идеал»</div>
+</footer>
+<script>
+(function(){
+var API="https://doctorguzairovabot-production.up.railway.app/api/application";
+var f=document.getElementById("zapisForm");if(!f)return;
+var st=document.getElementById("zapisStatus"),b=f.querySelector("button");
+function say(t,c){st.textContent=t;st.className="zst "+(c||"")}
+f.addEventListener("submit",function(e){
+e.preventDefault();
+var d=new FormData(f),name=(d.get("name")||"").trim(),phone=(d.get("phone")||"").trim();
+if(name.length<2){say("Напишите, пожалуйста, как к вам обращаться.","err");f.name.focus();return}
+if(phone.replace(/\D/g,"").length<10){say("Проверьте номер телефона: нужно не меньше 10 цифр.","err");f.phone.focus();return}
+if(!f.consent.checked){say("Поставьте галочку согласия на обработку данных.","err");f.consent.focus();return}
+b.disabled=true;say("Отправляем заявку…");
+fetch(API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({
+name:name,phone:phone,time:d.get("time"),service:d.get("service"),message:d.get("message"),website:d.get("website"),consent:true})})
+.then(function(r){return r.json().catch(function(){return{ok:false}})})
+.then(function(j){
+if(j&&j.ok){f.reset();say("Спасибо! Заявка получена. Мы перезвоним вам в рабочее время.","ok")}
+else{say((j&&j.message)||"Не получилось отправить. Позвоните нам: +7 (993) 040-45-46.","err")}
+})
+.catch(function(){say("Нет связи. Позвоните нам: +7 (993) 040-45-46.","err")})
+.then(function(){b.disabled=false});
+});
+})();
+</script>
+</body>
+</html>
