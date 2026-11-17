@@ -323,6 +323,124 @@ header::before{background-image:var(--leafL);width:240px;height:240px;left:-40px
 .ct::after{background-image:var(--leafL);width:260px;height:280px;right:-40px;bottom:-60px;transform:rotate(-30deg)}
 .lg::before,footer::before{background-image:var(--leafL);width:300px;height:320px;right:-40px;top:-40px;transform:rotate(200deg);opacity:.35}
 .lg::before{left:-60px;right:auto;transform:rotate(-20deg)}
+
+/* ===== Экспериментальная тема «Шалфей × жемчуг».
+   Только визуальные свойства; HTML, фотографии, размеры и поведение не меняются. ===== */
+:root {
+  --teal:#527869;
+  --teal-d:#294d3f;
+  --cream:#f6f3ea;
+  --gold:#d9c9a7;
+  --gold-d:#876e43;
+  --ink:#263d34;
+  --mut:#53675d;
+  --sage:#b7cec3;
+  --sage-l:#edf2eb;
+  --goldg:linear-gradient(180deg,#f9efd8 0%,#e8d6b0 48%,#d0b681 100%);
+}
+body{
+  color:var(--ink);
+  background:linear-gradient(120deg,#fbf9f3 0%,#f6f3ea 52%,#eff3ed 100%);
+}
+header{
+  background:
+    radial-gradient(ellipse at 83% 5%,rgba(225,239,219,.27),transparent 60%),
+    linear-gradient(118deg,#315b4b 0%,#466f5e 50%,#769687 100%);
+}
+header .logo,header .logo b,header .logo small,header nav a{color:#fffdf6}
+header nav a:hover{color:#fff0c7}
+header .tel{
+  color:var(--ink);
+  background:var(--goldg);
+  border:1px solid #cbb786;
+  box-shadow:inset 0 1px rgba(255,255,255,.75),0 5px 14px rgba(34,58,47,.13);
+}
+header .tel svg{color:var(--ink)}
+.hero{
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 5% 10%,rgba(255,255,255,.96) 0%,transparent 51%),
+    radial-gradient(ellipse at 86% 86%,rgba(153,183,164,.33),transparent 55%),
+    linear-gradient(117deg,#f6f3ea 0%,#fcfbf6 45%,#dce8df 100%);
+}
+.hero h1{color:#294d3f;text-shadow:none}
+.hero p{color:#75664e}
+.hero .rule{background:linear-gradient(90deg,#b69860,#e5d4b0)}
+.btn,.zp button.btn,.tel{
+  background:var(--goldg);
+  color:#263d34;
+  border:1px solid #cbb786;
+  box-shadow:inset 0 1px rgba(255,255,255,.75),0 5px 14px rgba(76,67,48,.14);
+}
+.btn:hover,.zp button.btn:hover,.tel:hover{
+  background:linear-gradient(180deg,#f8e6c2,#d8bd8c);
+  color:#263d34;
+}
+.btn.o{background:rgba(255,255,255,.35);color:var(--teal-d);border-color:#bbaa84;box-shadow:none}
+.btn.o:hover{background:#e7ddc7;color:var(--teal-d)}
+.perks{background:linear-gradient(105deg,#f9f7f0,#f0f4ee)}
+.perk svg{color:#90794c}
+.perk+.perk{border-left-color:#dddbce}
+.doc .w{
+  background:
+    radial-gradient(ellipse at 13% 0%,rgba(255,255,255,.8),transparent 63%),
+    linear-gradient(120deg,#f6f3ea,#e3ede4);
+  box-shadow:0 10px 28px rgba(41,77,63,.07);
+}
+.doc h2,.hl h2,.zp h2{color:var(--teal-d)}
+.hl::after{background:linear-gradient(90deg,#d0b681,transparent)}
+.cert{background:linear-gradient(125deg,#fbf9f3,#f4f2e9)}
+.sci{background:#fffdfa;border-color:#ddd0b7;box-shadow:0 3px 12px rgba(47,77,61,.07)}
+.svc{
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 88% 0%,rgba(197,218,201,.35),transparent 62%),
+    linear-gradient(125deg,#f9f7f0,#edf2eb);
+}
+.s,.s:nth-child(even){
+  color:var(--ink);
+  background:linear-gradient(140deg,#fffefa,#f6f3ea);
+  border-color:#e7dfce;
+  box-shadow:inset 0 1px rgba(255,255,255,.8),0 7px 21px rgba(38,72,55,.08);
+}
+.s svg{color:#527869}
+.s p{color:#556a5d}
+.steps{background:linear-gradient(125deg,#faf8f2,#f4f4ec)}
+.st div{
+  background:linear-gradient(130deg,#fffefa,#f0f4ed);
+  border-color:#e3e2d5;
+  box-shadow:0 5px 16px rgba(40,70,56,.06);
+}
+.pr{
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 92% 5%,rgba(255,255,255,.67),transparent 49%),
+    radial-gradient(ellipse at 10% 88%,rgba(255,255,255,.48),transparent 52%),
+    linear-gradient(125deg,#bed2c3,#e1e9df 50%,#b8ccbd);
+}
+.pr .sub,.pnote{color:var(--ink)}
+.pr .row{background:#fbfaf5;border-color:#e4e0d4;color:var(--ink)}
+.pr .row em{color:var(--ink)}
+details,.dg details,.zp .w{
+  background:linear-gradient(140deg,#fffefa,#f7f4eb);
+  border-color:#e7dfce;
+  box-shadow:0 5px 18px rgba(42,75,57,.055);
+}
+.ct{
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 20% 10%,rgba(255,255,255,.64),transparent 52%),
+    linear-gradient(115deg,#d3e0d6,#edf1e8 55%,#b7cebf);
+}
+.zp input,.zp select,.zp textarea{background:#fffefa;border-color:#d8d1bc}
+.lg,footer,.dis{
+  background:
+    radial-gradient(ellipse at 90% 0%,rgba(188,216,194,.14),transparent 60%),
+    linear-gradient(125deg,#294e40,#426a58);
+}
+footer,footer b,.lg,footer .m span{color:#fffdf6}
+.dis{color:#e5ece2}
+
 </style>
 </head>
 <body>
