@@ -287,6 +287,27 @@ footer,.dis{background:#3f6050}
 
 .btn,.zp button.btn,.tel,.tel svg,.btn:hover,.zp button.btn:hover{color:#1d3a2e}
 .row em{color:#1d3a2e;background:linear-gradient(135deg,#e2c995,#b8975a)}
+
+/* ===== Цены одной таблицей и подвал, как на макете ===== */
+.pr{background:linear-gradient(180deg,#bfcebf,#c8d5c7)}
+.pr .hl{justify-content:center}
+.pr .hl::before{content:"";flex:1;height:1px;background:linear-gradient(270deg,var(--gold),transparent);min-width:40px;max-width:200px}
+.pr .hl::after{max-width:200px;flex:1}
+.pr .sub{text-align:center;font-style:normal;font-weight:500;color:var(--teal-d)}
+.pr .w{max-width:900px}
+.row{background:#f7f3eb;border:0;border-bottom:1px solid #e4e0d4;border-radius:0;margin:0;padding:13px 28px;font-size:17px;box-shadow:none}
+.pr .sub+.row{border-radius:16px 16px 0 0}
+.row:last-of-type{border-bottom:0;border-radius:0 0 16px 16px}
+.row svg{display:none}
+.row em{background:none;color:var(--teal-d);padding:0 0 0 24px;border-left:1px solid #e4e0d4;min-width:130px;text-align:right;font-weight:600;font-size:17px;margin-left:auto}
+.pnote{text-align:center;font-style:normal;color:var(--teal-d);margin-top:16px}
+.pbtn{display:table;margin:20px auto 0}
+.lg{background:#406252;padding:36px 24px 8px}
+footer,.dis{background:linear-gradient(180deg,#406252,#335749)}
+footer{color:#fff}
+.lg+footer .w{padding-top:18px}
+.dis{background:transparent;color:#d3dfd6;border-top:1px solid rgba(214,184,120,.5)}
+.row em{border-radius:0}
 </style>
 </head>
 <body>
