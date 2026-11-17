@@ -158,6 +158,29 @@ footer .m{display:flex;align-items:center;gap:10px}
 .tel{border-left:0;padding-left:0}.row em{font-size:15px}.row{font-size:18px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* запись на приём */
+.zp{padding:72px 0 80px}
+.zp .w{max-width:760px}
+.zp h2{font-size:clamp(34px,4.4vw,52px);font-weight:500;color:var(--teal-d)}
+.zp .lead{color:var(--mut);margin:14px 0 30px}
+.zp form{display:grid;gap:18px}
+.zp .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.zp label{display:flex;flex-direction:column;gap:6px;font-size:16px;color:var(--teal-d)}
+.zp input,.zp select,.zp textarea{font:inherit;font-size:17px;color:var(--ink);background:#fff;border:1px solid var(--gold);border-radius:10px;padding:13px 14px;width:100%}
+.zp textarea{min-height:110px;resize:vertical}
+.zp input:focus-visible,.zp select:focus-visible,.zp textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.zp .agree{flex-direction:row;align-items:flex-start;gap:12px;font-size:15px;color:var(--mut)}
+.zp .agree input{width:22px;height:22px;margin-top:3px;flex:none;accent-color:var(--teal)}
+.zp .agree a{color:var(--teal-d)}
+.zp .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.zp button.btn{border:0;cursor:pointer;font:inherit;font-size:19px;justify-self:start;background:var(--teal);color:#fff}
+.zp button.btn:hover{background:var(--gold-d)}
+.zp button.btn[disabled]{opacity:.6;cursor:wait}
+.zp .zst{min-height:1.6em;font-size:17px}
+.zp .zst.ok{color:#1f5e3a}
+.zp .zst.err{color:#9b2c2c}
+@media(max-width:640px){.zp .two{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -186,7 +209,7 @@ footer .m{display:flex;align-items:center;gap:10px}
 <h1>Ваша улыбка. Мой личный подход.</h1>
 <div class="rule"></div>
 <p>Алина Хамзина · стоматолог, гнатолог</p>
-<a class="btn" href="#kontakty">Записаться на приём</a>
+<a class="btn" href="#zapis">Записаться на приём</a>
 </div>
 <div class="hero-p"><img src="images/hero.jpg" alt="Хамзина Алина Феликсовна, врач-стоматолог, в кабинете"></div>
 </div></section>
@@ -341,6 +364,34 @@ lb.addEventListener('close',function(){if(opener)opener.focus()});
 </div>
 </div></section>
 
+<section class="zp" id="zapis"><div class="w">
+<h2>Запись на приём</h2>
+<p class="lead">Оставьте имя и телефон. Администратор перезвонит в рабочее время (пн–пт, 09:00–20:00) и подберёт удобное время.</p>
+<form id="zapisForm" novalidate>
+<div class="two">
+<label>Ваше имя<input name="name" autocomplete="name" required maxlength="120"></label>
+<label>Телефон<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 ___ ___-__-__" required maxlength="40"></label>
+</div>
+<div class="two">
+<label>Когда удобно принять звонок<input name="time" placeholder="Например, после 18:00" maxlength="120"></label>
+<label>Что вас беспокоит
+<select name="service">
+<option value="">Пока не знаю, нужна консультация</option>
+<option>Лечение зубов</option>
+<option>Протезирование</option>
+<option>Гигиена и отбеливание</option>
+<option>Гнатология (прикус, мышцы, суставы)</option>
+<option>Другое</option>
+</select></label>
+</div>
+<label>Комментарий (по желанию)<textarea name="message" maxlength="1500"></textarea></label>
+<label class="hp" aria-hidden="true">Не заполняйте это поле<input name="website" tabindex="-1" autocomplete="off"></label>
+<label class="agree"><input type="checkbox" name="consent" required><span>Я согласен(на) на обработку персональных данных в соответствии с <a href="d_politika_konfendicialnosti.html" target="_blank" rel="noopener">политикой конфиденциальности</a>.</span></label>
+<button class="btn" type="submit">Записаться на приём</button>
+<div class="zst" id="zapisStatus" role="status" aria-live="polite"></div>
+</form>
+</div></section>
+
 <section class="ct" id="kontakty"><div class="w">
 <div>
 <h2>Начнём с консультации</h2>
@@ -362,5 +413,30 @@ lb.addEventListener('close',function(){if(opener)opener.focus()});
 </div>
 <div class="dis">Имеются противопоказания. Необходима консультация специалиста. © 2026 Стоматология «Идеал»</div>
 </footer>
+<script>
+(function(){
+var API="https://doctorguzairovabot-production.up.railway.app/api/application";
+var f=document.getElementById("zapisForm");if(!f)return;
+var st=document.getElementById("zapisStatus"),b=f.querySelector("button");
+function say(t,c){st.textContent=t;st.className="zst "+(c||"")}
+f.addEventListener("submit",function(e){
+e.preventDefault();
+var d=new FormData(f),name=(d.get("name")||"").trim(),phone=(d.get("phone")||"").trim();
+if(name.length<2){say("Напишите, пожалуйста, как к вам обращаться.","err");f.name.focus();return}
+if(phone.replace(/\D/g,"").length<10){say("Проверьте номер телефона: нужно не меньше 10 цифр.","err");f.phone.focus();return}
+if(!f.consent.checked){say("Поставьте галочку согласия на обработку данных.","err");f.consent.focus();return}
+b.disabled=true;say("Отправляем заявку…");
+fetch(API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({
+name:name,phone:phone,time:d.get("time"),service:d.get("service"),message:d.get("message"),website:d.get("website"),consent:true})})
+.then(function(r){return r.json().catch(function(){return{ok:false}})})
+.then(function(j){
+if(j&&j.ok){f.reset();say("Спасибо! Заявка получена. Мы перезвоним вам в рабочее время.","ok")}
+else{say((j&&j.message)||"Не получилось отправить. Позвоните нам: +7 (993) 040-45-46.","err")}
+})
+.catch(function(){say("Нет связи. Позвоните нам: +7 (993) 040-45-46.","err")})
+.then(function(){b.disabled=false});
+});
+})();
+</script>
 </body>
 </html>
