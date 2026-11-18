@@ -375,3 +375,12 @@ footer .m span { color: #fffdf7 !important; }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* 18.11.2026: сертификаты — на компьютере сначала 4 и кнопка «Посмотреть все остальное»; на телефоне лента листается вбок */
+.cgrid:not(.open) li.more { display: none; }
+.cmore { display: table; margin: 28px auto 0; cursor: pointer; }
+@media (max-width: 640px) {
+  .cgrid { display: flex; gap: 14px; margin-right: -20px; padding: 0 20px 14px 0; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+  .cgrid li, .cgrid:not(.open) li.more { display: block; flex: 0 0 64%; scroll-snap-align: start; }
+  .cmore { display: none; }
+}
