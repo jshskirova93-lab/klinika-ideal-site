@@ -78,7 +78,7 @@ p { margin-top: 0; }
 .brand b { color: var(--pearl-light); font: italic 600 37px/1 var(--display); }
 .brand small { margin-top: 3px; font-size: 9px; letter-spacing: .32em; }
 .site-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; }
-.site-nav a { position: relative; font-weight: 600; text-decoration: none; }
+.site-nav a { position: relative; white-space: nowrap; font-weight: 600; text-decoration: none; }
 .site-nav a:hover { color: #ffefc8; }
 .site-nav a[aria-current="page"]::after { content: ""; position: absolute; left: 0; right: 0; bottom: -7px; height: 1px; background: var(--champagne); }
 .header-phone,
