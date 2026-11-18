@@ -51,9 +51,9 @@
 </div></footer>
 <script>
 (function(){var q=document.getElementById('q'),none=document.getElementById('none');
-function f(){var v=q.value.trim().toLowerCase(),any=false;
+function f(){var v=q.value.trim().toLowerCase(),terms=v.split(/\s+/).filter(Boolean).map(function(word){return word.length>5?word.slice(0,-2):word}),any=false;
 document.querySelectorAll('.grp').forEach(function(g){var n=0;
-g.querySelectorAll('li').forEach(function(li){var ok=!v||li.textContent.toLowerCase().indexOf(v)>-1;li.style.display=ok?'':'none';if(ok)n++});
+g.querySelectorAll('li').forEach(function(li){var text=li.textContent.toLowerCase(),ok=!terms.length||terms.every(function(term){return text.indexOf(term)>-1});li.style.display=ok?'':'none';if(ok)n++});
 g.style.display=n?'':'none';if(n)any=true});
 none.style.display=any?'none':'block'}
 q.addEventListener('input',f)})();
