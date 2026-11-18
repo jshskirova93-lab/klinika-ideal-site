@@ -6,38 +6,19 @@
 <title>Прайс-лист стоматологии «Идеал»</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<style>
-:root{--teal:#283a48;--teal-d:#213140;--cream:#f7f3f2;--gold:#bfa595;--ink:#213140;--mut:#5a6572;--disp:'Cormorant Garamond',Georgia,serif;--body:'PT Serif',Georgia,serif;color-scheme:light}
-*{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
-a{color:var(--teal-d)}a:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.w{max-width:980px;margin:0 auto;padding:0 24px}
-.top{border-bottom:1px solid var(--gold);padding:14px 0;font-size:15px}
-h1{font-family:var(--disp);font-weight:500;font-size:clamp(38px,6vw,60px);line-height:1.05;margin:28px 0 8px;color:var(--teal-d)}
-.lead{color:var(--mut);margin:0 0 20px;max-width:640px}
-.find{display:block;width:100%;max-width:520px;padding:14px 16px;font:inherit;border:1px solid var(--gold);background:#fff;color:var(--ink);border-radius:8px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 8px}
-.chips a{text-decoration:none;border:1px solid var(--gold);padding:6px 14px;border-radius:999px;font-size:15px;background:#fff}
-.chips a:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
-.grp{margin-top:36px;scroll-margin-top:16px}
-.grp h2{font-family:var(--disp);font-weight:500;font-size:clamp(28px,4vw,38px);line-height:1.1;margin:0 0 6px;display:flex;align-items:center;gap:20px}
-.grp h2::after{content:"";flex:1;height:1px;background:var(--gold)}
-ul{list-style:none;margin:0;padding:0}
-li{display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1px solid #e0d8d4;align-items:baseline}
-li small{color:var(--mut);font-size:13px}
-.pr{white-space:nowrap;font-weight:700;color:var(--teal-d)}
-.none{display:none;margin-top:28px;font-style:italic;color:var(--mut)}
-.dis{margin:48px 0 40px;padding:20px 24px;border:1px solid var(--gold);background:#efe8e6;color:var(--mut);font-size:15px}
-@media (max-width:600px){li{flex-direction:column;gap:2px}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/internal.css">
 </head>
-<body>
-<div class="top"><div class="w"><a href="index.html#ceny">← На главную, к ценам</a></div></div>
-<main class="w">
+<body class="price-page">
+<header class="site-header"><div class="w">
+<a class="brand" href="index.html" aria-label="Стоматология «Идеал», главная"><img src="images/mark.jpg" alt=""><span><b>Идеал</b><small>СТОМАТОЛОГИЯ</small></span></a>
+<nav class="site-nav" aria-label="Основная навигация"><a href="index.html">Главная</a><a href="index.html#vrach">О враче</a><a href="index.html#uslugi">Услуги</a><a href="prices.html" aria-current="page">Цены</a><a href="otzyvy.html">Отзывы</a><a href="index.html#kontakty">Контакты</a></nav>
+<a class="header-phone" href="tel:+79930404546">+7 (993) 040-45-46</a>
+</div></header>
+<main class="w price-main">
 <h1>Прайс-лист</h1>
 <p class="lead">Стоматология «Идеал», ООО «ИДЕАЛ». Точную стоимость лечения врач называет после осмотра, до начала работы.</p>
-<label for="q" style="display:block;font-size:15px;margin-bottom:6px">Найти услугу</label>
+<label class="search-label" for="q">Найти услугу</label>
 <input id="q" class="find" type="search" placeholder="Например: коронка, удаление, отбеливание" autocomplete="off">
 <nav class="chips" aria-label="Разделы прайс-листа"><a href="#s1">Диагностика</a><a href="#s2">Профилактика, гигиена</a><a href="#s3">Анестезия</a><a href="#s4">Эстетическая стоматология</a><a href="#s5">Терапевтическая стоматология</a><a href="#s6">Лечение кариеса, некариозных поражений</a><a href="#s7">Лечение осложненного кариеса (пульпит, периодонтит)</a><a href="#s8">Микропротезирование с применением композитноволоконной техники</a><a href="#s9">Пародонтология</a><a href="#s10">Ортопедическая стоматология</a><a href="#s11">Хирургическая стоматология</a><a href="#s12">Имплантация</a><a href="#s13">Ортодонтия</a></nav>
 <div id="list">
@@ -58,6 +39,16 @@ li small{color:var(--mut);font-size:13px}
 <p class="none" id="none">Такой услуги в прайс-листе нет. Позвоните нам, и мы подскажем.</p>
 <p class="dis">Цены, указанные на сайте, не являются публичной офертой! Обращаем ваше внимание на то, что данный интернет-сайт носит исключительно информационный характер и ни при каких условиях не является публичной офертой. За актуальными ценами просим обращаться по тел. +7 (993) 040-45-46</p>
 </main>
+<section class="soft-band final-cta"><div class="w">
+<h2>Обсудим план и стоимость до начала лечения</h2>
+<p>Запишитесь на консультацию — врач ответит на вопросы и предложит подходящие варианты.</p>
+<a class="gold-button" href="index.html#zapis">Записаться на приём</a>
+</div></section>
+<footer class="site-footer"><div class="w">
+<div class="footer-brand"><b>Идеал</b><span>ООО «Идеал». Стоматология и ортопедия.</span></div>
+<div class="footer-contact"><span>Уфа, ул. Рязанская, 1/1</span><span>+7 (993) 040-45-46</span><span>idealstomat@bk.ru</span><span>Пн.–пт. 09:00–20:00</span></div>
+<div class="footer-legal"><p>Имеются противопоказания. Необходима консультация специалиста.</p><p>© 2026 Стоматология «Идеал»</p></div>
+</div></footer>
 <script>
 (function(){var q=document.getElementById('q'),none=document.getElementById('none');
 function f(){var v=q.value.trim().toLowerCase(),any=false;
